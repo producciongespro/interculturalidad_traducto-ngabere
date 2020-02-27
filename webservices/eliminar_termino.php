@@ -10,8 +10,8 @@ $dataObject = json_decode($JSONData);
 require 'conectar.php';
 $conexion = conectarDB();
 $id = $dataObject-> id;
-$usuario =  utf8_decode($dataObject-> id_usuario);
-   $actualizacion = "UPDATE `recursos` SET `borrado`='1', `id_usuario`='$usuario' WHERE `id`='$id'";
+$id_suario =  utf8_decode($dataObject-> id_usuario);
+   $actualizacion = "UPDATE `terminos` SET `borrado`='1', `id_usuario`='$id_usuario' WHERE `id`='$id'";
 
    $resultadoActualizacion = mysqli_query($conexion, $actualizacion); 
 

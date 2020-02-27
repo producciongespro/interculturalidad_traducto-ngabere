@@ -10,15 +10,13 @@ $dataObject = json_decode($JSONData);
 require 'conectar.php';
 $conexion = conectarDB();
 $id = $dataObject-> id;
-$id_nivel = $dataObject-> id_nivel;
-$materia =  utf8_decode($dataObject-> materia);  
-$anno = utf8_decode($dataObject-> anno);
-$nombre = utf8_decode( $dataObject-> nombre) ;
-$descripcion = utf8_decode($dataObject-> descripcion); 
-$url = utf8_decode($dataObject-> url);        
-$apoyos = $dataObject-> apoyo;
-$usuario =  utf8_decode($dataObject-> id_usuario);
-   $actualizacion = "UPDATE `recursos` SET `materia`='$materia',`anno`='$anno',`nombre`='$nombre',`id_nivel`='$id_nivel',`descripcion`='$descripcion', `url`='$url',`apoyos`='$apoyos',`id_usuario`='$usuario' WHERE `id`='$id'";
+$t_espanol = utf8_decode($dataObject-> t_espanol);
+$t_gnabere = utf8_decode( $dataObject-> t_gnabere) ;
+$texto = utf8_decode($dataObject-> texto); 
+$url_audio = utf8_decode($dataObject-> url_audio);
+$url_imagen = utf8_decode($dataObject-> url_imagen);
+$id_usuario = $dataObject-> id_usuario;
+   $actualizacion = "UPDATE `terminos` SET `t_espanol`='$t_espanol',`t_gnabere`='$t_gnabere',`url_audio`='$url_audio',`url_imagen`='$url_imagen',`texto`='$texto',`id_usuario`='$id_usuario' WHERE `id`=$id";
 
    $resultadoActualizacion = mysqli_query($conexion, $actualizacion); 
 
