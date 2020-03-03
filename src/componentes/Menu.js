@@ -1,7 +1,10 @@
 import React from 'react';
 import palabras from '../data/palabras.json';
+
+
+
+   
 function Menu(props) {
-    
     return(
         <div className="row">
             <div className="col-12">
