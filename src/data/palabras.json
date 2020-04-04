@@ -10,5 +10,101 @@
     {
         "letra": "C", 
         "ejemplo": "Cama"
+    },
+    {
+        "letra": "D", 
+        "ejemplo": "Amor"
+    },
+    {
+        "letra": "E", 
+        "ejemplo": "Beso"
+    },
+    {
+        "letra": "F", 
+        "ejemplo": "Cama"
+    },
+    {
+        "letra": "G", 
+        "ejemplo": "Amor"
+    },
+    {
+        "letra": "H", 
+        "ejemplo": "Beso"
+    },
+    {
+        "letra": "I", 
+        "ejemplo": "Cama"
+    },
+    {
+        "letra": "J", 
+        "ejemplo": "Amor"
+    },
+    {
+        "letra": "K", 
+        "ejemplo": "Beso"
+    },
+    {
+        "letra": "L", 
+        "ejemplo": "Cama"
+    },
+    {
+        "letra": "M", 
+        "ejemplo": "Amor"
+    },
+    {
+        "letra": "N", 
+        "ejemplo": "Beso"
+    },
+    {
+        "letra": "Ñ", 
+        "ejemplo": "Cama"
+    },
+    {
+        "letra": "O", 
+        "ejemplo": "Amor"
+    },
+    {
+        "letra": "P", 
+        "ejemplo": "Beso"
+    },
+    {
+        "letra": "Q", 
+        "ejemplo": "Cama"
+    },
+    {
+        "letra": "R", 
+        "ejemplo": "Amor"
+    },
+    {
+        "letra": "S", 
+        "ejemplo": "Beso"
+    },
+    {
+        "letra": "T", 
+        "ejemplo": "Cama"
+    },
+    {
+        "letra": "U", 
+        "ejemplo": "Amor"
+    },
+    {
+        "letra": "V", 
+        "ejemplo": "Beso"
+    },
+    {
+        "letra": "W", 
+        "ejemplo": "Cama"
+    },
+    {
+        "letra": "X", 
+        "ejemplo": "Amor"
+    },
+    {
+        "letra": "Y", 
+        "ejemplo": "Beso"
+    },
+    {
+        "letra": "Z", 
+        "ejemplo": "Cama"
     }
 ]

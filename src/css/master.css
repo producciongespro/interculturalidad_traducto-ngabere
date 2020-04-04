@@ -1,0 +1,84 @@
+.iconos{
+    padding-right: 1em;
+}
+
+.espanol{
+    font-size: 3vw;
+    font-weight: bold;
+    padding-right: 1em;
+}
+
+.gnabere{
+    border-bottom-width: 100px;
+    
+    display:block;
+    font-size: 4vw;
+    font-weight: bold;
+    border: 2px solid #ca1c1e;
+    display: inline-block;
+    margin: 25px auto;
+    padding: 25px;
+    position: relative;
+    width: auto;
+}
+
+.gnabere::before,
+.gnabere::after {
+  content: '';
+  position: absolute;
+  background: white;
+}
+
+.gnabere::before {
+  width: calc(100% + 50px + 4px - 120px);
+  height: calc(100% + 4px);
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.gnabere::after {
+  height: calc(100% + 50px + 4px - 120px);
+  width: calc(100% + 4px);
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.gnabere_contenedor{
+	text-align:center;	
+}
+
+.gnabere span {
+    color: brown;
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    z-index: 5;
+  }
+
+  .banner{
+      width: 100%;
+  }
+
+  .lista_terminos{
+      color: darkblue;
+      font-size: 3vh;
+      cursor: pointer;
+      padding-left: 4rem;
+  }
+
+  .textos_gnabere{
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 4vh;
+  }
+
+  .textos_espanol{
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 3vh;
+  }
