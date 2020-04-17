@@ -4,7 +4,7 @@ function Visor (props) {
     
 
     return ( 
-             <div className="col-4">
+             <div className="col-3">
              <ul>
               {
                        props.listaFiltrada !== null ? (
@@ -30,9 +30,9 @@ function Visor (props) {
                       )}
                    
           </ul>
-          <div className="row">
+          {/* <div className="row">
 
-    </div>
+    </div> */}
              </div>
     )
 }
