@@ -7,12 +7,18 @@ const audios = sonidos.mp3.general;
 function Detalle(props) {
 
     return (
-        <div className="col-8"> 
+        <div className="col-9"> 
        
-            <div className="row" id="detalle">
-               
-               
+            <div className="row" id="detalle">              
             {
+                 props.info === "limpiar" ?
+                   (
+                    <React.Fragment> 
+                          <div className="col-12">
+                          <p>No hay palabra seleccionada</p>
+                          </div>
+                          </React.Fragment>
+                   ):(
                 props.info !== null ?
                 (
                     <React.Fragment> 
@@ -50,7 +56,7 @@ function Detalle(props) {
                         </i></span> 
                         </div>
                         <div className="col-6" >
-                            <img id="" src={imgGenerales + props.info.url_imagen}  alt="Gallo" />
+                            <img className="img-fluid" id="" src={imgGenerales + props.info.url_imagen}  alt="Gallo" />
                             <br/><audio src={audios + props.info.url_audio} controls="controls" type="audio/mpeg" preload="preload">
 </audio>
                         </div>
@@ -61,7 +67,7 @@ function Detalle(props) {
                             <p>No hay palabra seleccionada</p>
                             {/* {document.getElementById('detalle').innerHTML=''} */}
                     </React.Fragment>
-                )
+                ))
             }
 
             </div>

@@ -7,9 +7,10 @@ return(
     <div className="col-12">
         {
             palabras.map((item,i)=>(
-            <button className="btn btn-success mx-1" onClick={props.handleObtenerPorLetra} key={i} id={item.letra} >{item.letra}</button>
+            <button className="par" onClick={props.handleObtenerPorLetra} key={i} id={item.letra} >{item.letra}</button>
             ))
         }
+          <img src="imagenes/humans.jpg" alt="humanos"/>
     </div>
     </React.Fragment>
 )

@@ -4,10 +4,12 @@ import Banner from './componentes/Banner';
 import MenuLetras from './componentes/MenuLetras';
 import Splash from './componentes/Spalsh';
 import Visor from './componentes/Visor';
+import Educatico from './componentes/Educatico';
 import Detalle from './componentes/Detalle';
+import Imagenes from './data/config.json';
 import './css/master.css';
 var datosJson = null;
-
+const fondos = Imagenes.img.general;
 function App() {
   const [isReady, setisReady] = useState(false);
   const [listaFiltrada, setListaFiltrada,]= useState(null);
@@ -20,9 +22,8 @@ function App() {
   }, [])
 
   async function obtenerDatos() {
-    //let response = await fetch('http://localhost/Buscador/webservice/obtener.php');
-    // let response = await fetch('https://mundologan.xyz/ws/buscadot/obtener.php');
-    let response = await fetch('http://recursos.mep.go.cr/2020/oscar/webservices/obtener_terminos.php');
+    let response = await fetch('http://localhost/webservices/traductor/obtener_terminos.php');
+    // let response = await fetch('http://recursos.mep.go.cr/2020/oscar/webservices/obtener_terminos.php');
     console.log(response);
     datosJson = await response.json();
     console.log("Array", datosJson);
@@ -87,6 +88,8 @@ function App() {
     }
     console.log(e.target.id);
     console.log(setEjemplos);
+    console.log("limpiar");
+    setInfo("limpiar");
     setListaFiltrada(setEjemplos);
     setEjemplo(e.target.id);
   }
@@ -103,24 +106,43 @@ function App() {
 
   return (
 
-    <div className="Container">
+    <div className="">
       {
         isReady ?
           (             
            
             <React.Fragment>
+              
+              <div className="container">
+              <img className="img-fluid" src={fondos+"arriba.png"} alt="arr"/>
               <Banner handleBanner={handleBanner}/>
-              <div className="row">
-                <MenuLetras handleObtenerPorLetra={handleObtenerPorLetra}/>
-              </div>  
-              <Menu  handleBuscador={handleBuscador} handleT_gnabere={handleT_gnabere} />
-              <hr />
-              <div className="row">
-   
-                <Visor listaFiltrada={listaFiltrada}  datosFiltrados={datosFiltrados} nombreCient={nombreCient} handleMostrarDetalle={handleMostrarDetalle} />
-                <Detalle info={info} />
+              <div className="row" id="">
+                  <div className="col-1">
+                    <img className="img-fluid" src={fondos+"izquierdo.png"} alt="izq"/>
+                  </div>
+                  <div className="col-10">
+                      <div className="row text-right" id="menu_letras">
+                        <MenuLetras handleObtenerPorLetra={handleObtenerPorLetra}/>
+                      </div>  
+                      {/* <Menu  handleBuscador={handleBuscador} handleT_gnabere={handleT_gnabere} /> */}
+                      {/* <hr /> */}
+                      <div id="detalles" className="row">
+                      <div className="col-12">
+                        <div className="row">
+                        <Visor listaFiltrada={listaFiltrada}  datosFiltrados={datosFiltrados} nombreCient={nombreCient} handleMostrarDetalle={handleMostrarDetalle} />
+                        <Detalle info={info} />
+                        </div>
+                      </div>
+                     
+                      </div>
+                      <Educatico/>
+                </div>
+                <div className="col-1">
+                <img className="img-fluid" src={fondos+"derecho.png"} alt="der"/>
+                  </div>
+              </div> 
+              
               </div>
-
             </React.Fragment>
           )
           :
