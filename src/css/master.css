@@ -3,7 +3,7 @@ body{
 }
 
 .container{
-  background-color: #93ccbb;
+  background-color: #91CBB9;
 }
 
 ul {
@@ -18,24 +18,81 @@ ul {
   color: brown; 
   }
 
+  #barra-superior{
+    margin-top: 1%;
+    background-image: url("http://localhost/webservices/traductor/triangulo-01.png");
+    background-repeat: repeat-x;
+  }
+
+  #barra-banner1{
+    margin-top: 1%;
+  }
+  #barra-banner{
+    margin-top: 1%;
+    background-image: url("http://localhost/webservices/traductor/triangulo2-01.png");
+    background-repeat: repeat-x;
+  }
+
   #educatico{
-    margin-top: -14%;
+    margin-top: -24%;
+    margin-right: -2.8%;
+    margin-left: -2.8%;
+  }
+
+  #logos_mep{
+    z-index: 999999999;
   }
 
 #detalles{
   background-color: white;
   padding: 5%;
-  margin-left: 0.125%;
-  margin-right: 0.125%;
-  height: 36vw;
+  margin-left: -2.875%;
+  margin-right: -3.875%;
+  height: 42vw;
+}
+
+#btn-acercaDe{
+  cursor: pointer;
 }
 
 .par{
   font-weight: bold;
   border: none;
+  font-size: 1.5vw;
+  margin-right: -3px;
+  margin-left: -3px;
+  height: 56%;
 }
 
-#B,#D,#F,#H,#J,#L,#N,#O,#Q,#S,#U,#W,#Y{
+.esquina{
+  position: absolute;
+  margin-left: -101%;
+}
+
+#esquinaSIB{
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 5%;
+}
+
+#esquinaID{
+  /* position: absolute; */
+  float: right;
+  bottom: 0px;
+  height: 41%;
+  margin-top: -295px;
+  margin-right: -28px;
+}
+
+#logo-mep{
+  float: right;
+    bottom: 0px;
+    height: 22%;
+    margin-top: -97px;
+    margin-right: -95px;
+}
+
+#A,#C,#E,#G,#I,#K,#M,#Ñ,#P,#R,#T,#V,#X,#Z{
   background-color: #93cbb9;
 }
 

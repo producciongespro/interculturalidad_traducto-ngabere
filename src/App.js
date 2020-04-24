@@ -114,7 +114,18 @@ function App() {
             <React.Fragment>
               
               <div className="container">
-              <img className="img-fluid" src={fondos+"arriba.png"} alt="arr"/>
+              <div className="row" id="">
+                  <div className="col-2">
+                  <img id="esquinaSIB" className="img-fluid" src={fondos+"esquinaSIB.png"} alt="izq"/>
+                  </div>
+                  <div id="barra-superior" className="col-8">
+                      
+                  </div>
+                  <div className="col-2">
+                    <img id="btn-acercaDe" className="img-fluid" src={fondos+"acercade-01.png"} alt="arr"/>
+                  </div>
+                </div>
+              {/* <img className="img-fluid" src={fondos+"arriba.png"} alt="arr"/> */}
               <Banner handleBanner={handleBanner}/>
               <div className="row" id="">
                   <div className="col-1">
@@ -127,15 +138,16 @@ function App() {
                       {/* <Menu  handleBuscador={handleBuscador} handleT_gnabere={handleT_gnabere} /> */}
                       {/* <hr /> */}
                       <div id="detalles" className="row">
-                      <div className="col-12">
+                      <div id="" className="col-12">
                         <div className="row">
                         <Visor listaFiltrada={listaFiltrada}  datosFiltrados={datosFiltrados} nombreCient={nombreCient} handleMostrarDetalle={handleMostrarDetalle} />
                         <Detalle info={info} />
                         </div>
+                       
                       </div>
-                     
+                       
                       </div>
-                      <Educatico/>
+                       <Educatico/> 
                 </div>
                 <div className="col-1">
                 <img className="img-fluid" src={fondos+"derecho.png"} alt="der"/>
