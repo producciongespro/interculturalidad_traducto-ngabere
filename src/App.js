@@ -114,7 +114,7 @@ function App() {
             <React.Fragment>
               
               <div className="container">
-              <div className="row" id="">
+              {/* <div className="row" id="">
                   <div className="col-2">
                   <img id="esquinaSIB" className="img-fluid" src={fondos+"esquinaSIB.png"} alt="izq"/>
                   </div>
@@ -124,12 +124,12 @@ function App() {
                   <div className="col-2">
                     <img id="btn-acercaDe" className="img-fluid" src={fondos+"acercade-01.png"} alt="arr"/>
                   </div>
-                </div>
+                </div> */}
               {/* <img className="img-fluid" src={fondos+"arriba.png"} alt="arr"/> */}
               <Banner handleBanner={handleBanner}/>
               <div className="row" id="">
                   <div className="col-1">
-                    <img className="img-fluid" src={fondos+"izquierdo.png"} alt="izq"/>
+                    <img className="img-fluid" src={fondos+"triangulos_izq-01.png"} alt="izq"/>
                   </div>
                   <div className="col-10">
                       <div className="row text-right" id="menu_letras">
@@ -150,7 +150,7 @@ function App() {
                        <Educatico/> 
                 </div>
                 <div className="col-1">
-                <img className="img-fluid" src={fondos+"derecho.png"} alt="der"/>
+                <img id="barra_derecha" className="img-fluid" src={fondos+"triangulos_der-01.png"} alt="der"/>
                   </div>
               </div> 
               

@@ -1,5 +1,6 @@
 body{
   background-color: #f0f8f6;
+  font-family: 'PT Sans', sans-serif;
 }
 
 .container{
@@ -43,6 +44,10 @@ ul {
     z-index: 999999999;
   }
 
+  #menu_letras
+  {margin-top: 1%;
+  }
+
 #detalles{
   background-color: white;
   padding: 5%;
@@ -53,6 +58,10 @@ ul {
 
 #btn-acercaDe{
   cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 99999;
 }
 
 .par{
@@ -104,6 +113,11 @@ ul {
     font-size: 3vw;
     font-weight: bold;
     padding-right: 1em;
+}
+
+#barra_derecha{
+  float: right;
+margin-top: -125%;
 }
 
 .gnabere{
@@ -159,7 +173,7 @@ ul {
   }
 
   .banner{
-    width: 93%;
+    width: 100%;
   }
 
   .lista_terminos{
