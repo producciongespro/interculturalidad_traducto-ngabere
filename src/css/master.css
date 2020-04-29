@@ -35,13 +35,18 @@ ul {
   }
 
   #educatico{
-    margin-top: -24%;
-    margin-right: -2.8%;
-    margin-left: -2.8%;
+   
   }
 
   #logos_mep{
     z-index: 999999999;
+  }
+
+  #educatico-div{
+    margin-top: -8%;
+    margin-right: -2.8%;
+    margin-left: -2.8%;
+    background-color: #EBEBEC;
   }
 
   #menu_letras
@@ -53,7 +58,7 @@ ul {
   padding: 5%;
   margin-left: -2.875%;
   margin-right: -3.875%;
-  height: 42vw;
+  height: 38vw;
 }
 
 #btn-acercaDe{
@@ -88,17 +93,27 @@ ul {
   /* position: absolute; */
   float: right;
   bottom: 0px;
-  height: 41%;
-  margin-top: -295px;
-  margin-right: -28px;
+  margin-top: -224px;
+
+  margin-right: -32px;
 }
 
 #logo-mep{
   float: right;
     bottom: 0px;
-    height: 22%;
-    margin-top: -97px;
-    margin-right: -95px;
+  
+position: absolute;
+    bottom: 0px;
+    right: 0px;
+    
+}
+
+.barras{
+  z-index: 9999999;
+}
+
+#esquinaII{
+  margin-top: -40%;
 }
 
 #A,#C,#E,#G,#I,#K,#M,#Ñ,#P,#R,#T,#V,#X,#Z{

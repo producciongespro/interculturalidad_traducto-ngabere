@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Menu from './componentes/Menu';
 import Banner from './componentes/Banner';
+import BarraInferior from './componentes/BarraInferior';
 import MenuLetras from './componentes/MenuLetras';
 import Splash from './componentes/Spalsh';
 import Visor from './componentes/Visor';
@@ -150,10 +151,11 @@ function App() {
                        <Educatico/> 
                 </div>
                 <div className="col-1">
-                <img id="barra_derecha" className="img-fluid" src={fondos+"triangulos_der-01.png"} alt="der"/>
+                   <img id="barra_derecha" className="img-fluid" src={fondos+"triangulos_der-01.png"} alt="der"/>
                   </div>
               </div> 
-              
+             
+              <BarraInferior/> 
               </div>
             </React.Fragment>
           )

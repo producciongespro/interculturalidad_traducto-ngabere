@@ -9,10 +9,12 @@ function Educatico(props) {
             <div className="row">
             <div id="logos_mep" className="col-12">
                 <div className="">
-                <img id="educatico" className="img-fluid educatico" src={imgGenerales + "educatico.jpg"}  alt="Educatico" />
+                <div id="educatico-div" className="text-center">
+                    <img id="educatico" className="img-fluid educatico" src={imgGenerales + "visiteeducatico-01.png"}  alt="Educatico" /> 
+                </div>
                 <br/>
-                <img id="esquinaID" className="" src={imgGenerales+"esquinaID.png"} alt="der"/>
-                <img id="logo-mep" className="" src={imgGenerales+"logoMep-01.png"} alt="der"/>
+                <img id="esquinaID" className="img-fluid" src={imgGenerales+"borde_der-01.png"} alt="der"/>
+                
                 </div>
             </div>
         </div>

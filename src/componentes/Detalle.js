@@ -39,6 +39,14 @@ function Detalle(props) {
                                 
                             }
                         </p>
+
+                        </div>
+                        <div className="col-6" >
+                            <img className="img-fluid" id="" src={imgGenerales + props.info.url_imagen}  alt="Gallo" />
+                            <br/><audio src={audios + props.info.url_audio} controls="controls" type="audio/mpeg" preload="preload">
+                        </audio>
+                        <div className="row text-center">
+                            <div className="col-12">
                         <span className="iconos"><i className="fa fa-thumbs-o-up">
                             {
                                 props.info.me_gusta
@@ -55,10 +63,7 @@ function Detalle(props) {
                             }
                         </i></span> 
                         </div>
-                        <div className="col-6" >
-                            <img className="img-fluid" id="" src={imgGenerales + props.info.url_imagen}  alt="Gallo" />
-                            <br/><audio src={audios + props.info.url_audio} controls="controls" type="audio/mpeg" preload="preload">
-</audio>
+                        </div>
                         </div>
                     </React.Fragment>
                 ):( 
