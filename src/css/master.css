@@ -101,6 +101,8 @@ ul {
 #logo-mep{
   float: right;
     bottom: 0px;
+    z-index: 9999999999;
+  
   
 position: absolute;
     bottom: 0px;
@@ -163,6 +165,10 @@ margin-top: -125%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+}
+
+#audio-imagen{
+  z-index: 999999999999;
 }
 
 .gnabere::after {

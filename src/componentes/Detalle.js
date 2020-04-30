@@ -41,7 +41,7 @@ function Detalle(props) {
                         </p>
 
                         </div>
-                        <div className="col-6" >
+                        <div id="audio-imagen" className="col-6" >
                             <img className="img-fluid" id="" src={imgGenerales + props.info.url_imagen}  alt="Gallo" />
                             <br/><audio src={audios + props.info.url_audio} controls="controls" type="audio/mpeg" preload="preload">
                         </audio>
