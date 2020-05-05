@@ -1,0 +1,15 @@
+{
+    "version" : "1",
+    "nombre" : "Traductor Gnäbere",
+    "servidor" : "http://gnabere.local/webservices/",
+    "img" : {
+        "general" : "http://gnabere.local/imagenes/"
+    },
+    "mp3" : {
+        "general" : "http://gnabere.local/audios/"
+    }
+}
+
+
+
+

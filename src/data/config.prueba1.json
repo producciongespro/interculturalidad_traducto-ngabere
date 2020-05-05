@@ -1,0 +1,11 @@
+{
+    "version" : "1",
+    "nombre" : "Traductor Gnäbere",
+    "servidor" : "https://recursos.mep.go.cr/2020/oscar/",
+    "img" : {
+        "general" : "https://recursos.mep.go.cr/2020/oscar/webservices/traductor/"
+    },
+    "mp3" : {
+        "general" : "https://recursos.mep.go.cr/2020/oscar/webservices/traductor/"
+    }
+}
