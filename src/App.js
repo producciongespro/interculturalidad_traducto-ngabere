@@ -7,10 +7,13 @@ import Splash from './componentes/Spalsh';
 import Visor from './componentes/Visor';
 import Educatico from './componentes/Educatico';
 import Detalle from './componentes/Detalle';
-import Imagenes from './data/config.json';
+import config from './data/config.json';
+
 import './css/master.css';
 var datosJson = null;
-const fondos = Imagenes.img.general;
+const fondos = config.img.general;
+console.log("fondos",fondos);
+
 function App() {
   const [isReady, setisReady] = useState(false);
   const [listaFiltrada, setListaFiltrada,]= useState(null);
@@ -23,7 +26,7 @@ function App() {
   }, [])
 
   async function obtenerDatos() {
-    let response = await fetch('https://recursos.mep.go.cr/2020/oscar/webservices/obtener_terminos.php');
+    let response = await fetch(config.servidor + 'obtener_terminos.php');
     // let response = await fetch('http://recursos.mep.go.cr/2020/oscar/webservices/obtener_terminos.php');
     console.log(response);
     datosJson = await response.json();
