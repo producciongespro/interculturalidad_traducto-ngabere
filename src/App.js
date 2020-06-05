@@ -26,8 +26,8 @@ function App() {
   }, [])
 
   async function obtenerDatos() {
-    let response = await fetch('http://localhost/traducto-ngabere/webservices/obtener_terminos.php');
-    // let response = await fetch('http://recursos.mep.go.cr/2020/oscar/webservices/obtener_terminos.php');
+    //let response = await fetch('http://localhost/traducto-ngabere/webservices/obtener_terminos.php');
+    let response = await fetch('https://recursos.mep.go.cr/2020/oscar/traductor/webservices/obtener_terminos.php');
     console.log(response);
     datosJson = await response.json();
     console.log("Array", datosJson);

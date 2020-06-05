@@ -7,9 +7,9 @@ $method = $_SERVER['REQUEST_METHOD'];
 function conectarDB(){
 
   $servidor = "localhost";
-  $usuario = "root";
-  $password = "";
-  $bd = "prueba_traductor";
+  $usuario = "recursos_gespro";
+  $password = "Hola123Gespro";
+  $bd = "recursos_traductor";
 
     $conexion = mysqli_connect($servidor, $usuario, $password,$bd);
 

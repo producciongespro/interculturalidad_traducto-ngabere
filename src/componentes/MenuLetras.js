@@ -5,7 +5,7 @@ function MenuLetras(props) {
 return(
     <React.Fragment>  
         <div className="col-1">
-        <img className="esquina" src="http://localhost/webservices/traductor/borde_izq-01.png" alt="esquina"/>
+        <img className="esquina" src="https://recursos.mep.go.cr/2020/oscar/traductor/webservices/borde_izq-01.png" alt="esquina"/>
             </div> 
     <div className="col-9">
         {
@@ -16,7 +16,7 @@ return(
           
     </div>
     <div className="col-2">
-    <img className="img-fluid" src="http://localhost/webservices/traductor/cabezas-01.png" alt="humanos"/></div> 
+    <img className="img-fluid" src="https://recursos.mep.go.cr/2020/oscar/traductor/webservices/cabezas-01.png" alt="humanos"/></div> 
     </React.Fragment>
 )
     }

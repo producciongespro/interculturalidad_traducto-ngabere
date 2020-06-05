@@ -3,10 +3,10 @@
     "nombre" : "Traductor Gnäbere",
     "servidor" : "http://localhost/",
     "img" : {
-        "general" : "http://localhost/traducto-ngabere/webservices/"
+        "general" : "https://recursos.mep.go.cr/2020/oscar/traductor/webservices/"
     },
     "mp3" : {
-        "general" : "http://localhost/traducto-ngabere/webservices/"
+        "general" : "https://recursos.mep.go.cr/2020/oscar/traductor/webservices/"
     }
 }
 
