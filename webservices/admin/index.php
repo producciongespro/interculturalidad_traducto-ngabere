@@ -7,9 +7,10 @@
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified CSS -->
+        crossorigin="anonymous"></script>        
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Balsamiq+Sans">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/master.css">
     <script src="main.js"></script>
     <title>Traductor Gnäbere - Administración</title>
 </head>
@@ -17,67 +18,120 @@
 <div class="container">
 <form class="form-horizontal">
 <fieldset>
+  <div class="row">
+    <div class="col-md-12 fondo-ladrillo">
 
-<!-- Form Name -->
-<legend>Agregar término nuevo</legend>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 simbolos">
 
-<!-- Text input-->
+    </div>
+  </div>
 
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="gnabere">Término en Gnäbere</label>  
-  <div class="col-md-5">
-  <input id="gnabere" name="gnabere" type="text" placeholder="Escriba el término en Gnäbere" class="form-control input-md" required="">
+<div class="row fondo-ladrillo">
+  <div class="col-md-2"></div>
+  <div class="col-md-6 text-center borde-blanco">
+    <span class="letrero-1" >Traductor</span>
+    <span class="letrero-2" >ngäbere</span>
+    <span class="letrero-3" >Módulo</span>
+  </div>
   
+
+  <div class="col-md-4">
+    <img class="img-fluid" src="./assets/dialogo.png" alt="nubes" >
   </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="espanol">Término en español</label>  
-  <div class="col-md-5">
-  <input id="espanol" name="espanol" type="text" placeholder="Escriba el término en español" class="form-control input-md">
- 
+<br>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4 grupo-gris">
+      Término en Gnäbere
   </div>
+  <div class="col-md-4  grupo-rojo"">
+    <input id="gnabere" name="gnabere" type="text" placeholder="Escriba el término en Gnäbere" class="form-control input-md" required="">
+  </div>
+  <div class="col-md-2"></div>
 </div>
 
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="txtGnabere">Frase en gnäbere</label>
-  <div class="col-md-4">                     
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4 grupo-gris">
+    Término en español
+  </div>
+  <div class="col-md-4  grupo-rojo">
+    <input id="espanol" name="espanol" type="text" placeholder="Escriba el término en español" class="form-control input-md">
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 grupo-gris">
+      Frase en gnäbere
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 grupo-rojo">
     <textarea class="form-control" id="txtGnabere" name="txtGnabere"></textarea>
   </div>
+  <div class="col-md-2"></div>
 </div>
 
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="txtEspanol">Frase en español</label>
-  <div class="col-md-4">                     
-    <textarea class="form-control" id="txtEspanol" name="txtEspanol"></textarea>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 grupo-gris">
+      Frase en español
   </div>
+  <div class="col-md-2"></div>
 </div>
 
-<!-- File Button --> 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="audio">Audio</label>
-  <div class="col-md-4">
-    <input id="audio" name="audio" class="input-file" type="file">
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 grupo-rojo">
+  <textarea class="form-control" id="txtEspanol" name="txtEspanol"></textarea>
   </div>
+  <div class="col-md-2"></div>
 </div>
 
-<!-- File Button --> 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="imagen">Imagen</label>
-  <div class="col-md-4">
-    <input id="imagen" name="imagen" class="input-file" type="file">
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4 grupo-gris">
+    Audio
   </div>
+  <div class="col-md-4  grupo-rojo">
+      <input id="audio" name="audio" class="input-file" type="file">
+  </div>
+  <div class="col-md-2"></div>
 </div>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4 grupo-gris">
+    Imagen
+  </div>
+  <div class="col-md-4  grupo-rojo">
+      <input id="imagen" name="imagen" class="input-file" type="file">
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
 <br>
-<div class="form-group text-center">
-  <div class="col-md-4">
-    <input id="btnEnviar" class="btn btn-success" type="button" value="Enviar">
+
+<div class="row">
+  <div class="col-md-12">
+    <input id="btnEnviar" class="btn  btn-lg btn-block btn-rojo" type="button" value="Enviar">
+  </div>
 </div>
-</div>
+
+
+
 </fieldset>
 </form>
  <div class="div-shadow invisible">

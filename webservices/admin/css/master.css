@@ -1,0 +1,75 @@
+
+body {
+    background-color: rgb(242, 242, 242);
+}
+
+.fondo-ladrillo {
+    background-color: #ef7963;
+    min-height: 1.5em;
+}
+
+.simbolos {
+    min-height: 2em;
+    background-image: url(../assets/triangulo-01.png);
+    background-color: #ef7963;    
+}
+
+
+.letrero-1 {
+    font-family: 'Balsamiq Sans', serif;
+    color: #fff;
+    font-size: 1.5em;    
+}
+
+.letrero-2 {
+    font-family: 'Balsamiq Sans', serif;
+    color: rgb(246,244,178);
+    font-size: 2.5em;    
+}
+
+.letrero-3 {
+    font-family: 'Balsamiq Sans', serif;
+    color: #fff;
+    font-size: 3em;    
+}
+
+.borde-blanco {
+    border: #fff solid 2px;
+    margin: 2em 0;     
+}
+
+
+.grupo-gris {
+    background-color: rgb(217,217,217);
+    color: #fff;
+    min-height: 2em;
+    text-align: center;
+    margin: 1em 0.5em;
+    padding: 0.5em 0.5em;
+    font-size: 1.5em;
+}
+
+.grupo-rojo {
+    background-color: rgb(167,62,40);
+    color: #000;
+    min-height: 2em;
+    text-align: center;
+    margin: 1em 0.5em;
+    padding: 0.5em 0.5em;
+    font-size: 1.5em;
+}
+
+.btn-rojo {
+    color: #fff;
+    background-color: rgb(167,62,40);
+    border-color: rgb(167,50,50);
+    font-weight: bold;
+}
+
+
+.btn-rojo:hover {
+    color: rgb(167,62,40);
+    background-color: #fff;
+    border-color: rgb(167,50,50);
+    font-weight: bold;
+}
