@@ -16,8 +16,8 @@ function enviar() {
   console.log("Tratando de enviar",$('#imagen')[0].files[0]);
   console.log(formData);
    
-    $.ajax({
-      url: '../../enviar_termino.php',
+    $.ajax({      
+      url: '../enviar_termino.php',
       type: 'POST',
       data: formData,
       dataType: 'json',
