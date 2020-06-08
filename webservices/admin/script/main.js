@@ -17,7 +17,7 @@ function enviar() {
   console.log(formData);
    
     $.ajax({
-      url: 'enviar_termino.php',
+      url: '../enviar_termino.php',
       type: 'POST',
       data: formData,
       dataType: 'json',
