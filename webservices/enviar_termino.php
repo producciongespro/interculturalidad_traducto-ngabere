@@ -1,5 +1,5 @@
 <?php
-sleep(2);
+//sleep(2);
     include "conectar.php";
     // $msj = "Solicitud de conexión ";
     $mysqli = conectarDB();
