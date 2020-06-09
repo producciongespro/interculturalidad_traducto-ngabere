@@ -45,18 +45,26 @@ function ajaxServer() {
     processData: false,
     beforeSend: function(){
     console.log("En proceso");
+
+    $("#btnEnviar").val("Enviando datos...");
+    $("#btnEnviar").attr("disabled", true);
+
     $(".div-shadow").removeClass("invisible");
     }, success: function(response){
       console.log("Enviado");
+      $("#btnEnviar").val("Enviar");
+      $("#btnEnviar").attr("disabled", false);
       $(".div-shadow").addClass("invisible");
-      console.log(response.msj);
-      // function (response);
+        //Respuesta desde el servidor:
+        alert(response.msj)     
 
     }, error: function(response){
       console.log("Error al enviar");
         console.log(response.error);
         console.log(response.msj);
         $(".div-shadow").addClass("invisible");
+        $("#btnEnviar").val("Enviar");
+        $("#btnEnviar").attr("disabled", false);
     }
   });
 }
