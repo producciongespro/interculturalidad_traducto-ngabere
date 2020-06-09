@@ -23,6 +23,7 @@ function validarTextos () {
   return lleno
 }
 
+
 function ajaxServer() {
   var formData = new FormData();
   formData.append("gnabere", $("#gnabere").val() );
@@ -56,7 +57,8 @@ function ajaxServer() {
       $("#btnEnviar").attr("disabled", false);
       $(".div-shadow").addClass("invisible");
         //Respuesta desde el servidor:
-        alert(response.msj)     
+        alert(response.msj)
+        $('#frmTermino')[0].reset();     
 
     }, error: function(response){
       console.log("Error al enviar");
