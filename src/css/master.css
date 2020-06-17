@@ -9,12 +9,13 @@ body{
 
 ul {
   list-style: none; 
-  padding: 0; 
-  margin-left: 10px; 
+  list-style-image: url("https://recursos.mep.go.cr/2020/oscar/traductor/webservices/subidos/imagenes/flecha4.png");
+  margin-left: 5px; 
   }
   
   li::before { 
-  content: "\2022"; 
+  /* content: "\2022";  */
+ 
   padding-right: 8px; 
   color: brown; 
   }
@@ -98,6 +99,15 @@ ul {
   margin-right: -32px;
 }
 
+.div-palabras{
+  overflow-y: scroll;
+  /* border: 1px solid red; */
+  width:100px;
+  float: left;
+  height:363px;
+  position:relative;
+}
+
 #logo-mep{
   float: right;
     bottom: 0px;
@@ -118,7 +128,7 @@ position: absolute;
   margin-top: -40%;
 }
 
-#A,#C,#E,#G,#I,#K,#M,#Ñ,#P,#R,#T,#V,#X,#Z{
+#A,#C,#E,#G,#I,#K,#M,#O,#Q,#S,#U,#W,#Y{
   background-color: #93cbb9;
 }
 

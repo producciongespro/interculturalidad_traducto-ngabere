@@ -15,7 +15,7 @@ function Detalle(props) {
                    (
                     <React.Fragment> 
                           <div className="col-12">
-                          <p>No hay palabra seleccionada</p>
+                          <p alt="No hay palabra seleccionada">No hay palabra seleccionada</p>
                           </div>
                           </React.Fragment>
                    ):(
@@ -23,17 +23,17 @@ function Detalle(props) {
                 (
                     <React.Fragment> 
                         <div className="col-6">
-                         <span className="espanol">  {props.info.t_espanol}</span>                  
+                         <span alt={props.info.t_espanol} className="espanol">  {props.info.t_espanol}</span>                  
                         <div className="gnabere">
-                        <span className="">
+                        <span alt={props.info.t_gnabere} className="">
                              {props.info.t_gnabere}
                             </span> </div>
-                        <p className="textos_gnabere">
+                        <p alt={props.info.texto_gnabere}  className="textos_gnabere">
                             {
                                 props.info.texto_gnabere
                             }
                         </p>
-                        <p className="textos_espanol">
+                        <p alt={props.info.texto_espanol}  className="textos_espanol">
                             {
                                 props.info.texto_espanol
                                 
@@ -41,10 +41,29 @@ function Detalle(props) {
                         </p>
 
                         </div>
-                        <div id="audio-imagen" className="col-6" >
-                            <img className="img-fluid" id="" src={imgGenerales + props.info.url_imagen}  alt="Gallo" />
-                            <br/><audio src={audios + props.info.url_audio} controls="controls" type="audio/mpeg" preload="preload">
-                        </audio>
+                        <div id="audio-imagen" className="col-6" ><br/>
+                            <div className="text-center">
+                                <img className="img-fluid" id="" src={imgGenerales + props.info.url_imagen}  alt={props.info.t_espanol} />
+                            </div>
+                            {
+                            props.info.url_audio !== null ?(   
+                                <React.Fragment>
+                                     <div className="text-center">
+                                    <audio src={audios + props.info.url_audio} controls="controls" type="audio/mpeg" preload="preload">
+                                    </audio>
+                                    </div>
+                                </React.Fragment>
+                            )
+                            :
+                            (
+                                <React.Fragment>
+                                    <div className="text-center">
+                                         <img alt="Sin audio"  className="img-fluid" id="" src={imgGenerales + "/subidos/imagenes/no_audio.png"}  alt="Sin audio" />
+                                    </div>
+                                   
+                                </React.Fragment> 
+                            )}
+                            
                         <div className="row text-center">
                             <div className="col-12">
                         <span className="iconos"><i className="fa fa-thumbs-o-up">

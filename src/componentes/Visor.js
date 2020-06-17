@@ -4,7 +4,7 @@ function Visor (props) {
     
 
     return ( 
-             <div className="col-3">
+             <div className="col-3 div-palabras">
              <ul>
               {
                        props.listaFiltrada !== null ? (
