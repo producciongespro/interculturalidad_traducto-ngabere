@@ -74,8 +74,8 @@ ul {
   font-weight: bold;
   border: none;
   font-size: 1.5vw;
-  margin-right: -3px;
-  margin-left: -3px;
+  margin-right: -1px;
+  margin-left: -1px;
   height: 56%;
 }
 
@@ -128,7 +128,7 @@ position: absolute;
   margin-top: -40%;
 }
 
-#A,#C,#E,#G,#I,#K,#M,#O,#Q,#S,#U,#W,#Y{
+#A,#C,#E,#J,#L,#N,#O,#S,#U{
   background-color: #93cbb9;
 }
 

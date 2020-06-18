@@ -19,22 +19,12 @@
         "letra": "E", 
         "ejemplo": "Beso"
     },
-    {
-        "letra": "F", 
-        "ejemplo": "Cama"
-    },
+ 
     {
         "letra": "G", 
         "ejemplo": "Amor"
     },
-    {
-        "letra": "H", 
-        "ejemplo": "Beso"
-    },
-    {
-        "letra": "I", 
-        "ejemplo": "Cama"
-    },
+
     {
         "letra": "J", 
         "ejemplo": "Amor"
@@ -56,16 +46,12 @@
         "ejemplo": "Beso"
     },
     {
-        "letra": "O", 
-        "ejemplo": "Amor"
-    },
-    {
-        "letra": "P", 
+        "letra": "Ñ", 
         "ejemplo": "Beso"
     },
     {
-        "letra": "Q", 
-        "ejemplo": "Cama"
+        "letra": "O", 
+        "ejemplo": "Amor"
     },
     {
         "letra": "R", 
@@ -83,24 +69,8 @@
         "letra": "U", 
         "ejemplo": "Amor"
     },
-    {
-        "letra": "V", 
-        "ejemplo": "Beso"
-    },
-    {
-        "letra": "W", 
-        "ejemplo": "Cama"
-    },
-    {
-        "letra": "X", 
-        "ejemplo": "Amor"
-    },
-    {
+     {
         "letra": "Y", 
         "ejemplo": "Beso"
-    },
-    {
-        "letra": "Z", 
-        "ejemplo": "Cama"
     }
 ]
