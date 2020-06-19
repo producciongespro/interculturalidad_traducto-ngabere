@@ -11,8 +11,10 @@ import config from './data/config.json';
 
 import './css/master.css';
 var datosJson = null;
+var plataforma="";
 const fondos = config.img.general;
 console.log("fondos",fondos);
+
 
 function App() {
   const [isReady, setisReady] = useState(false);
@@ -21,6 +23,7 @@ function App() {
   const [info,setInfo] = useState(null);
   const [nombreCient, setNombreCient] = useState(false);
   const setEjemplos=[];
+  plataforma = detectarPlataforma();
   useEffect(() => {
     obtenerDatos();
   }, [])
@@ -33,6 +36,28 @@ function App() {
     console.log("Array", datosJson);
     setisReady(true);
     setDatosFiltrados(datosJson);
+  }
+
+  function detectarPlataforma() {
+    let plataforma = navigator.platform;
+    switch (plataforma) {
+      case "Linux armv7l":
+      case "Linux armv8l":
+      case "iPhone":
+      case "iPad":
+        plataforma = "movil";
+        break;
+      case "win32":
+        plataforma = "escritorio";
+        //plataforma = "movil";
+        break;
+      default:
+        plataforma = "escritorio";
+        //plataforma = "movil";
+        break;
+    }
+    sessionStorage.setItem("tipoPlataforma", plataforma);
+    return plataforma;
   }
 
 
@@ -138,6 +163,7 @@ function App() {
                   <div className="col-10">
                       <div className="row text-right" id="menu_letras">
                         <MenuLetras handleObtenerPorLetra={handleObtenerPorLetra}/>
+                        <p>{plataforma}</p>
                       </div>  
                       {/* <Menu  handleBuscador={handleBuscador} handleT_gnabere={handleT_gnabere} /> */}
                       {/* <hr /> */}
