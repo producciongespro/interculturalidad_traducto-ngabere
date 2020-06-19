@@ -1,24 +1,24 @@
 import React from 'react';
 
-function Visor (props) {
+function VisorMovil (props) {
     
 
     return ( 
-             <div className="col-3 div-palabras">
-             <ul className="escritorio">
+             <div className="col-3 div-palabrasMovil">
+             <p className="listaMovil">
               {
                        props.listaFiltrada !== null ? (
                         (
                         props.nombreCient ?
                         (
                             props.listaFiltrada.map((item,i)=>(
-                                <li className="lista_terminos" onClick={props.handleMostrarDetalle}  id={item.id}  key={item.id}> {item.t_espanol } </li>
+                                <li className="lista_terminosMovil" onClick={props.handleMostrarDetalle}  id={item.id}  key={item.id}> {item.t_espanol } </li>
                             ))
                         ):
                         (
                             props.listaFiltrada.length > 0 ? (
                                 props.listaFiltrada.map((item,i)=>(
-                                    <li className="lista_terminos" onClick={props.handleMostrarDetalle}  id={item.id}  key={item.id}> {item.t_gnabere } </li>
+                                    <li className="lista_terminosMovil" onClick={props.handleMostrarDetalle}  id={item.id}  key={item.id}> {item.t_gnabere } </li>
                                 )
                               )) : (
                                 <p>No hay términos con esa letra</p>
@@ -29,7 +29,7 @@ function Visor (props) {
                         <p>Seleccione la letra inicial del término que desea traducir a Gnäbere</p>
                       )}
                    
-          </ul>
+          </p>
           {/* <div className="row">
 
     </div> */}
@@ -37,4 +37,4 @@ function Visor (props) {
     )
 }
 
-export default Visor;
+export default VisorMovil;

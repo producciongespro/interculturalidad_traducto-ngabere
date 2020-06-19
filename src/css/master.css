@@ -7,11 +7,18 @@ body{
   background-color: #91CBB9;
 }
 
-ul {
+.escritorio {
   list-style: none; 
   list-style-image: url("https://recursos.mep.go.cr/2020/oscar/traductor/webservices/subidos/imagenes/flecha4.png");
   margin-left: 5px; 
   }
+
+.listaMovil {
+  font-size: 10px;
+    list-style: none; 
+    /* list-style-image: url("https://recursos.mep.go.cr/2020/oscar/traductor/webservices/subidos/imagenes/flecha4.png");  */
+    margin-left: 5px; 
+}
   
   li::before { 
   /* content: "\2022";  */
@@ -35,19 +42,34 @@ ul {
     background-repeat: repeat-x;
   }
 
-  #educatico{
-   
-  }
+ 
 
   #logos_mep{
     z-index: 999999999;
   }
+  #logos_mepMovil{
+    z-index: 999999999;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom: 3%;
 
+  }
   #educatico-div{
     margin-top: -8%;
     margin-right: -2.8%;
     margin-left: -2.8%;
     background-color: #EBEBEC;
+  }
+
+  #educatico-divMovil{
+    margin-right: -2.9%;
+    margin-left: -2.9%;
+    margin-top: -8%;
+    background-color: white;
+  }
+
+  #educaticoMovil{
+    width: 35%;
   }
 
   #menu_letras
@@ -62,6 +84,14 @@ ul {
   height: 38vw;
 }
 
+#detallesMovil{
+  background-color: white;
+  padding-bottom: 2%;
+  margin-left: 0%;
+  margin-right: 0%;
+  height: 128vw;
+}
+
 #btn-acercaDe{
   cursor: pointer;
   position: absolute;
@@ -69,6 +99,13 @@ ul {
   top: 0px;
   z-index: 99999;
 }
+
+.movil{
+  float: right;
+  height: 20%;
+}
+
+
 
 .par{
   font-weight: bold;
@@ -79,11 +116,27 @@ ul {
   height: 56%;
 }
 
+.parMovil{
+  font-weight: bold;
+  border: none;
+  font-size: 4vw;
+  margin-right: -1px;
+  margin-left: -1px;
+  height: 90%;
+}
+.imgMovil{
+  width: 75%;
+}
+
 .esquina{
   position: absolute;
   margin-left: -101%;
 }
 
+.esquinaMovil{
+  position: absolute;
+  
+}
 #esquinaSIB{
   position: absolute;
   margin-top: 7%;
@@ -99,6 +152,14 @@ ul {
   margin-right: -32px;
 }
 
+#esquinaIDMovil{
+  float: right;
+  bottom: 0px;
+  width: 50%;
+  margin-right:-18px;
+  margin-top: -118px;
+}
+
 .div-palabras{
   overflow-y: scroll;
   /* border: 1px solid red; */
@@ -108,11 +169,32 @@ ul {
   position:relative;
 }
 
+.div-palabrasMovil{
+  overflow-y: scroll;
+  /* border: 1px solid red; */
+  width:100px;
+  float: left;
+  height:423px;
+  position:relative;
+  padding-left: 0px;
+}
+
 #logo-mep{
   float: right;
     bottom: 0px;
     z-index: 9999999999;
   
+  
+position: absolute;
+    bottom: 0px;
+    right: 0px;
+    
+}
+
+#logo-mepMovil{
+  float: right;
+    z-index: 9999999999;
+  height: 150%;
   
 position: absolute;
     bottom: 0px;
@@ -142,6 +224,12 @@ position: absolute;
     padding-right: 1em;
 }
 
+.espanolMovil{
+  font-size: 5vw;
+  font-weight: bold;
+  padding-top: 1em;
+}
+
 #barra_derecha{
   float: right;
 margin-top: -125%;
@@ -159,6 +247,23 @@ margin-top: -125%;
     padding: 25px;
     position: relative;
     width: auto;
+}
+
+.ico-audio{
+  width: 20%;
+}
+
+.gnabereMovil{
+   
+  display:block;
+  font-size: 10vw;
+  font-weight: bold;
+  color: #ca1c1e;
+  display: inline-block;
+  margin-left: 1px auto;
+  margin-top: -16px;
+   /* position: relative; */
+  width: auto;
 }
 
 .gnabere::before,
@@ -214,14 +319,37 @@ margin-top: -125%;
       padding-left: 0rem;
   }
 
+  
+  .lista_terminosMovil{
+    list-style: none; 
+    color: darkblue;
+    font-size: 14px;
+    cursor: pointer;
+    padding-left: -2rem;
+}
+
   .textos_gnabere{
     font-style: italic;
     font-weight: bolder;
     font-size: 4vh;
   }
 
+  .textos_gnabereMovil{
+    margin-top: -14px;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 3vh;
+  }
+
   .textos_espanol{
     font-style: italic;
     font-weight: bolder;
     font-size: 3vh;
+  }
+
+  .textos_espanolMovil{
+    margin-top: -12px;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 2vh;
   }

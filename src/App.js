@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Menu from './componentes/Menu';
 import Banner from './componentes/Banner';
+import BannerMovil from './componentes/BannerMovil';
 import BarraInferior from './componentes/BarraInferior';
+import BarraInferiorMovil from './componentes/BarraInferiorMovil';
 import MenuLetras from './componentes/MenuLetras';
+import MenuLetrasMovil from './componentes/MenuLetrasMovil';
 import Splash from './componentes/Spalsh';
 import Visor from './componentes/Visor';
+import VisorMovil from './componentes/VisorMovil';
 import Educatico from './componentes/Educatico';
+import EducaticoMovil from './componentes/EducaticoMovil';
 import Detalle from './componentes/Detalle';
+import DetalleMovil from './componentes/DetalleMovil';
 import config from './data/config.json';
 
 import './css/master.css';
@@ -155,36 +161,84 @@ function App() {
                   </div>
                 </div> */}
               {/* <img className="img-fluid" src={fondos+"arriba.png"} alt="arr"/> */}
-              <Banner handleBanner={handleBanner}/>
-              <div className="row" id="">
-                  <div className="col-1">
-                    <img className="img-fluid" src={fondos+"triangulos_izq-01.png"} alt="izq"/>
-                  </div>
-                  <div className="col-10">
-                      <div className="row text-right" id="menu_letras">
-                        <MenuLetras handleObtenerPorLetra={handleObtenerPorLetra}/>
-                        <p>{plataforma}</p>
-                      </div>  
-                      {/* <Menu  handleBuscador={handleBuscador} handleT_gnabere={handleT_gnabere} /> */}
-                      {/* <hr /> */}
-                      <div id="detalles" className="row">
-                      <div id="" className="col-12">
-                        <div className="row">
-                        <Visor listaFiltrada={listaFiltrada}  datosFiltrados={datosFiltrados} nombreCient={nombreCient} handleMostrarDetalle={handleMostrarDetalle} />
-                        <Detalle info={info} />
+              {plataforma==="movil" ?(
+                <BannerMovil handleBanner={handleBanner}/>
+              )
+              :
+              (
+                 <Banner handleBanner={handleBanner}/>
+              )}
+              {plataforma==="movil" ?(  
+              <React.Fragment>
+                <div className="row" id="">
+              
+                   
+                     <div className="col-12">
+                       <div className="row" id="menu_letras">
+                         <MenuLetrasMovil handleObtenerPorLetra={handleObtenerPorLetra}/>    
+                       </div>  
+                       {/* <Menu  handleBuscador={handleBuscador} handleT_gnabere={handleT_gnabere} /> */}
+                       {/* <hr /> */}
+                       <div id="detallesMovil" className="row">
+                       <div id="" className="col-12">
+                         <div className="row">
+                         <VisorMovil listaFiltrada={listaFiltrada}  datosFiltrados={datosFiltrados} nombreCient={nombreCient} handleMostrarDetalle={handleMostrarDetalle} />
+                         <DetalleMovil info={info} />
+                         </div>
+                        
+                       </div>
+                        
+                       </div>
+                        <EducaticoMovil/> 
+                 </div>
+                 </div>
+                 </React.Fragment>
+                  )
+                  :
+                  (
+                  <React.Fragment>
+                  <div className="row" id="">
+                    <div className="col-1">
+                      <img className="img-fluid" src={fondos+"triangulos_izq-01.png"} alt="izq"/>
+                    </div>
+                      <div className="col-10">
+                        <div className="row text-right" id="menu_letras">
+                          <MenuLetras handleObtenerPorLetra={handleObtenerPorLetra}/>
+                        
+                        </div>  
+                        {/* <Menu  handleBuscador={handleBuscador} handleT_gnabere={handleT_gnabere} /> */}
+                        {/* <hr /> */}
+                        <div id="detalles" className="row">
+                        <div id="" className="col-12">
+                          <div className="row">
+                          <Visor listaFiltrada={listaFiltrada}  datosFiltrados={datosFiltrados} nombreCient={nombreCient} handleMostrarDetalle={handleMostrarDetalle} />
+                          <Detalle info={info} />
+                          </div>
+                        
                         </div>
-                       
-                      </div>
-                       
-                      </div>
-                       <Educatico/> 
+                        
+                        </div>
+                        {plataforma==="movil" ?(  
+                        <EducaticoMovil/> )
+                        :
+                        (
+                        <Educatico/> 
+                        )}
                 </div>
                 <div className="col-1">
                    <img id="barra_derecha" className="img-fluid" src={fondos+"triangulos_der-01.png"} alt="der"/>
                   </div>
               </div> 
-             
-              <BarraInferior/> 
+                </React.Fragment>
+                  )}
+                  
+                  {plataforma==="movil" ?(  
+                    <BarraInferiorMovil/> 
+                  )
+                  :
+                  (
+                    <BarraInferior/> 
+                  )}
               </div>
             </React.Fragment>
           )
