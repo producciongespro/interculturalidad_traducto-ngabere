@@ -3,6 +3,10 @@ body{
   font-family: 'PT Sans', sans-serif;
 }
 
+.acerca-de{
+  font-family: 'Dosis', sans-serif;
+}
+
 .container{
   background-color: #91CBB9;
 }
@@ -77,8 +81,13 @@ body{
     z-index: 999999999;
   }
 
+  .div-splash{
+    padding-top: 30vh;
+    color: darkblue;
+  }
+
   .letrasMovil{
-    z-index: 9999999999;
+    z-index: 1;
   }
 
 #detalles{
