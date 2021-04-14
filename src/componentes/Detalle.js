@@ -1,11 +1,14 @@
 import React from 'react';
 import assets from '../data/config.json';
 import sonidos from '../data/config.json';
+import Imagen from './Imagen';
+// import error from './Errorimagen';
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
+                                                  
 
 function Detalle(props) {
-
+    
     return (
         <div className="col-9"> 
        
@@ -43,7 +46,15 @@ function Detalle(props) {
                         </div>
                         <div id="audio-imagen" className="col-6" ><br/>
                             <div className="text-center">
-                                <img className="img-fluid" id="" src={imgGenerales + props.info.url_imagen}  alt={props.info.t_espanol} />
+    
+                                <Imagen 
+                                  className="img-fluid" 
+                                  id="" 
+                                  url={imgGenerales + props.info.url_imagen}  
+                                  alt={props.info.t_espanol} 
+                                  imgFallback= "./imagenes/no_image.png"
+                                />
+    
                             </div>
                             {
                             props.info.url_audio !== null ?(   
