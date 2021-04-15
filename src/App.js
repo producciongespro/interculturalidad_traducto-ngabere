@@ -167,7 +167,7 @@ const handleMostrarDetalle = (e) => {
 const [ejemplo, setEjemplo] = useState(null);
 const handleObtenerPorLetra = (e) => {
   for (let index = 0; index < datosFiltrados.length; index++) {
-    if ((datosFiltrados[index].t_gnabere).charAt(0) === e.target.id) {
+    if ((datosFiltrados[index].t_gnabere).charAt(0) === e.target.id || (datosFiltrados[index].t_gnabere).charAt(0) === e.target.name) {
       setEjemplos.push(datosFiltrados[index]);
     }
 

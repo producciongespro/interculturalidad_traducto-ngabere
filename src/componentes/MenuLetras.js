@@ -10,7 +10,7 @@ return(
     <div className="col-9">
         {
             palabras.map((item,i)=>(
-            <button className="par img-fluid" onClick={props.handleObtenerPorLetra} key={i} id={item.letra} >{item.letra}</button>
+            <button className="par img-fluid" onClick={props.handleObtenerPorLetra} key={i} id={item.letra} name={item.letra2} >{item.letra}</button>
             ))
         }
           
