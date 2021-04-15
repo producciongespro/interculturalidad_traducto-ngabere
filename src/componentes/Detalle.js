@@ -6,12 +6,16 @@ const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
 
 const getStoredImg = (id) => {
-  const  string = sessionStorage.getItem("imagenes");
+  const string = sessionStorage.getItem("imagenes");
   const array = JSON.parse(string);
   let tmpUrl;
   for (let index = 0; index < array.length; index++) {
     if (array[index].id === id) {
-      tmpUrl = array[index].url;
+      if (!array[index].isError) {
+        tmpUrl = array[index].url;
+      } else {
+        tmpUrl = "./imagenes/no_image.png";
+      }
     }
   }
   return tmpUrl;
@@ -50,12 +54,14 @@ function Detalle(props) {
             <div id="audio-imagen" className="col-6">
               <br />
               <div className="text-center">
-                {console.log("props.info.id",props.info.id)}
-                <h1>  {props.info.id} </h1>
+                {
+                  //console.log("props.info.id",props.info.id)
+                }
+                <h1> {props.info.id} </h1>
                 <img
                   className="img-fluid"
                   src={getStoredImg(props.info.id)}
-                  alt={props.info.t_espanol}                  
+                  alt={props.info.t_espanol}
                 />
               </div>
               {props.info.url_audio !== null ? (
