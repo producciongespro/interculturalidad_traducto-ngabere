@@ -1,6 +1,7 @@
 import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
+import getStoredImg from "../utils/customStorage";
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
 
@@ -36,16 +37,14 @@ function DetalleMovil(props) {
               </p>
               <div className="text-center">
                 <img
-                  className="img-fluid imgMovil"
-                  id=""
-                  src={imgGenerales + props.info.url_imagen}
+                  className="img-fluid imgMovil"                  
+                  src={getStoredImg(props.info.id)}
                   alt={props.info.t_espanol}
                 />
               </div>
               {props.info.url_audio !== null ? (
                 <React.Fragment>
-                  <div className="text-center">
-                    {" "}
+                  <div className="text-center">                    
                     <br />
                     <audio
                       src={audios + props.info.url_audio}
