@@ -155,7 +155,8 @@ const handleMostrarDetalle = (e) => {
   const id = e.target.id;
   for (let index = 0; index < datosFiltrados.length; index++) {
     if (datosFiltrados[index].id === id) {
-      setInfo(datosFiltrados[index])
+      //console.log("datosFiltrados[index]", datosFiltrados[index]);
+      setInfo(datosFiltrados[index] )
     }
   }
 }

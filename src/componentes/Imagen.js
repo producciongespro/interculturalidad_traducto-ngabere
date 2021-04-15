@@ -12,6 +12,15 @@ const Imagen = (props) => {
     setIsError(true);
   };
 
+
+  
+  useEffect(() => {
+    setUrl(props.url);
+    console.log("REcibida en IMAGEN props.url", props.url);
+  });
+  
+  
+  
   useEffect(() => {
     if (isError) {
       setUrl(imgFallback);
