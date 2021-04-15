@@ -172,7 +172,9 @@ function App() {
   };
 
   const [ejemplo, setEjemplo] = useState(null);
-  const handleObtenerPorLetra = (e) => {
+  const handleObtenerPorLetra = (e) => {  
+  
+
     for (let index = 0; index < datosFiltrados.length; index++) {
       if (
         datosFiltrados[index].t_gnabere.charAt(0) === e.target.id ||

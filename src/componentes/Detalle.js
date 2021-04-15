@@ -55,16 +55,15 @@ function Detalle(props) {
               <br />
               <div className="text-center">
                 {
-                  //console.log("props.info.id",props.info.id)
-                }
-                <h1> {props.info.id} </h1>
+                  console.log("props.info.id",props.info.id)
+                }               
                 <img
                   className="img-fluid"
                   src={getStoredImg(props.info.id)}
                   alt={props.info.t_espanol}
                 />
               </div>
-              {props.info.url_audio !== null ? (
+              {props.info.url_audio ? (
                 <React.Fragment>
                   <div className="text-center">
                     <audio
@@ -78,8 +77,7 @@ function Detalle(props) {
               ) : (
                 <React.Fragment>
                   <div className="text-center">
-                    <img
-                      alt="Sin audio"
+                    <img                      
                       className="img-fluid"
                       id=""
                       src={imgGenerales + "/subidos/imagenes/no_audio.png"}
