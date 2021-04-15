@@ -1,7 +1,6 @@
 import React  from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
-import Imagen from "./Imagen";
 // import error from './Errorimagen';
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
@@ -44,7 +43,7 @@ function Detalle(props) {
             <div id="audio-imagen" className="col-6">
               <br />
               <div className="text-center">
-                <Imagen
+                <img
                   className="img-fluid"                  
                   url={imgGenerales + props.info.url_imagen}
                   alt={props.info.t_espanol}
