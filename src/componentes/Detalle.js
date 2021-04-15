@@ -1,16 +1,23 @@
-import React  from "react";
+import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
 // import error from './Errorimagen';
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
 
-function Detalle(props) {
-    if (props.info) {
-        console.log("props.info------>", props.info);    
-        console.log("props.info.url_imagen", props.info.url_imagen);        
-      }
+const getStoredImg = (id) => {
+  const  string = sessionStorage.getItem("imagenes");
+  const array = JSON.parse(string);
+  let tmpUrl;
+  for (let index = 0; index < array.length; index++) {
+    if (array[index].id === id) {
+      tmpUrl = array[index].url;
+    }
+  }
+  return tmpUrl;
+};
 
+function Detalle(props) {
   return (
     <div className="col-9">
       <div className="row" id="detalle">
@@ -25,7 +32,7 @@ function Detalle(props) {
         ) : props.info !== null ? (
           <React.Fragment>
             <div className="col-6">
-              <span alt={props.info.t_espanol} className="espanol">                
+              <span alt={props.info.t_espanol} className="espanol">
                 {props.info.t_espanol}
               </span>
               <div className="gnabere">
@@ -43,11 +50,12 @@ function Detalle(props) {
             <div id="audio-imagen" className="col-6">
               <br />
               <div className="text-center">
+                {console.log("props.info.id",props.info.id)}
+                <h1>  {props.info.id} </h1>
                 <img
-                  className="img-fluid"                  
-                  url={imgGenerales + props.info.url_imagen}
-                  alt={props.info.t_espanol}
-                  imgFallback="./imagenes/no_image.png"
+                  className="img-fluid"
+                  src={getStoredImg(props.info.id)}
+                  alt={props.info.t_espanol}                  
                 />
               </div>
               {props.info.url_audio !== null ? (

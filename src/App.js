@@ -206,6 +206,7 @@ function App() {
           <PreloadAssets
             key={"img" + i}
             url={imgGenerales + item.url_imagen}
+            id= {item.id}
             imgFallback="./imagenes/no_image.png"
             alt="detalle"
           />
