@@ -25,21 +25,34 @@ function validarTextos () {
 
 
 function ajaxServer() {
-  var formData = new FormData();
-  formData.append("gnabere", $("#gnabere").val() );
-  formData.append("espanol", $("#espanol").val() );
-  formData.append("txtGnabere", $("#txtGnabere").val() );
-  formData.append("txtEspanol", $("#txtEspanol").val() );
-  formData.append("audio", $('#audio')[0].files[0] );
-  formData.append("imagen", $('#imagen')[0].files[0] );
+ var datos = new FormData(); 
+  datos.append("gnabere", $("#gnabere").val() );
+  datos.append("espanol", $("#espanol").val() );
+  datos.append("txtGnabere", $("#txtGnabere").val() );
+  datos.append("txtEspanol", $("#txtEspanol").val() );
+  datos.append("audio", $('#audio')[0].files[0] );
+  datos.append("imagen", $('#imagen')[0].files[0] );
 
     //console.log("Tratando de enviar",$('#imagen')[0].files[0]);
-    console.log("formData", formData);
+    console.log("formData", datos);
+
+  //   fetch('serv/enviar_termino.php', {
+  //     method: "POST",
+  //     dataType: 'json',
+  //     body: datos,
+  //     headers: {
+  //         // 'Content-Type': '"multipart/form-data;',
+  //         // 'Authorization': `Bearer ${token}`
+  //     }
+  // }).then(response => {
+  //     console.log(response)
+  // }).catch(error => console.log(error))
+
 
   $.ajax({      
-    url: '../enviar_termino.php',
+    url: 'serv/enviar_termino.php',
     type: 'POST',
-    data: formData,
+    data: datos,
     dataType: 'json',
     cache: false,
     contentType: false,

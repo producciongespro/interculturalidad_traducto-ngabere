@@ -1,4 +1,8 @@
 <?php
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+    header("Content-Type: text/html; charset=utf-8");
     include "conectar.php";
     // $msj = "Solicitud de conexión ";
     $mysqli = conectarDB();
@@ -9,8 +13,8 @@
     $audio = $_FILES['audio']['name'];
     $imagen = $_FILES['imagen']['name'];
     // $idUsuario = $_POST['id'];
-	$audioDirectory = "subidos/audios/";
-    $imagenDirectory = "subidos/imagenes/";
+	$audioDirectory = "../subidos/audios/";
+    $imagenDirectory = "../subidos/imagenes/";
     // $msj = $msj ." datos recibidos " .  $titulo . " ";
 
 /*
@@ -36,7 +40,7 @@
   if((move_uploaded_file($_FILES['imagen']['tmp_name'], $imagenDirectory.$filename)) AND (move_uploaded_file($_FILES['audio']['tmp_name'], $audioDirectory.$filename2))) {
 
             //the path to the PDF file
-            $pdfWithPath = '../subidos/imagenes/'.$filename;
+            // $pdfWithPath = '../subidos/imagenes/'.$filename;
             //add the desired extension to the thumbnail
 
             $thumb = $thumb.".jpg";
@@ -45,20 +49,19 @@
 						// echo "<script>console.log ('$thumbDirectory$thumb')</script>";
             // exec("convert \"{$pdfWithPath}[0]\" -colorspace sRGB -scale 200x259 -background white -flatten  $thumbDirectory$thumb",  $out ,  $outCode );
             
-            
-            $rutaAudio = "subidos/audios/".$thumb2;
             $rutaImagen = "subidos/imagenes/".$thumb;
-            $rutaDocumento = "subidos/imagenes/".$filename;
+            $rutaAudio = "subidos/audios/".$thumb2;
+           
+            // $rutaDocumento = "subidos/imagenes/".$filename;
             //echo $rutaImagen;
           //  echo "<p><a href=\"$pdfWithPath\"><img src=\"pdfimage/$thumb\" alt=\"\" /></a></p>";
 
 }
-
-if ($mysqli) {
-    mysqli_query($mysqli,"INSERT INTO `terminos`(`t_gnabere`, `t_espanol`, `texto_espanol`, `texto_gnabere`, `url_audio`, `url_imagen`, `id_usuario`) VALUES ('$gnabere','$espanol','$txtEspanol','$txtGnabere','$rutaAudio','$rutaImagen',1)") or die ();
-    echo json_encode(array('error'=>'false','msj'=>"Término agregado exitosamente"));
+$insercion=  mysqli_query($mysqli,"INSERT INTO `terminos`( `t_gnabere`, `t_espanol`, `texto_gnabere`, `texto_espanol`, `url_audio`, `url_imagen`, `id_usuario`, `vistas`, `me_gusta`, `no_me_gusta`, `borrado`) VALUES ('$gnabere','$espanol','$txtEspanol','$txtGnabere','$rutaAudio','$rutaImagen',1,0,0,0,0)") or die ();
+if ($insercion) {
+        echo json_encode(array('error'=>'false','msj'=>"Término agregado exitosamente"));
 }
 else {
-  echo json_encode(array('error'=>'true','msj'=>"Error al subir el archivo"));
+        echo json_encode(array('error'=>'true','msj'=>"Error al subir el archivo"));
 }
 ?>
