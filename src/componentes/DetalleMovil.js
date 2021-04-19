@@ -2,16 +2,13 @@ import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
 import getStoredImg from "../utils/customStorage";
-// import error from './Errorimagen';
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
 
-
-
-function Detalle(props) {
+function DetalleMovil(props) {
   return (
-    <div className="col-9">
-      <div className="row" id="detalle">
+    <div className="col-9" id="detalleMovil">
+      <div className="row">
         {props.info === "limpiar" ? (
           <React.Fragment>
             <div className="col-12">
@@ -22,37 +19,33 @@ function Detalle(props) {
           </React.Fragment>
         ) : props.info !== null ? (
           <React.Fragment>
-            <div className="col-6">
-              <span alt={props.info.t_espanol} className="espanol">
+            <div className="col-12">
+              <p alt={props.info.t_espanol} className="espanolMovil">
+                {" "}
                 {props.info.t_espanol}
-              </span>
-              <div className="gnabere">
-                <span alt={props.info.t_gnabere} className="">
+              </p>
+              <div className="gnabereMovil">
+                <p alt={props.info.t_gnabere} className="">
                   {props.info.t_gnabere}
-                </span>
+                </p>{" "}
               </div>
-              <p alt={props.info.texto_gnabere} className="textos_gnabere">
+              <p alt={props.info.texto_gnabere} className="textos_gnabereMovil">
                 {props.info.texto_gnabere}
               </p>
-              <p alt={props.info.texto_espanol} className="textos_espanol">
+              <p alt={props.info.texto_espanol} className="textos_espanolMovil">
                 {props.info.texto_espanol}
               </p>
-            </div>
-            <div id="audio-imagen" className="col-6">
-              <br />
               <div className="text-center">
-                {
-                  console.log("props.info.id",props.info.id)
-                }               
                 <img
-                  className="img-fluid"
+                  className="img-fluid imgMovil"                  
                   src={getStoredImg(props.info.id)}
                   alt={props.info.t_espanol}
                 />
               </div>
-              {props.info.url_audio ? (
+              {props.info.url_audio !== null ? (
                 <React.Fragment>
-                  <div className="text-center">
+                  <div className="text-center">                    
+                    <br />
                     <audio
                       src={audios + props.info.url_audio}
                       controls="controls"
@@ -64,8 +57,9 @@ function Detalle(props) {
               ) : (
                 <React.Fragment>
                   <div className="text-center">
+                    <br />
                     <img                      
-                      className="img-fluid"
+                      className="img-fluid ico-audio"
                       id=""
                       src={imgGenerales + "/subidos/imagenes/no_audio.png"}
                       alt="Sin audio"
@@ -102,4 +96,4 @@ function Detalle(props) {
   );
 }
 
-export default Detalle;
+export default DetalleMovil;

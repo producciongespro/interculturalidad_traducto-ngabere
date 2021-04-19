@@ -1,76 +1,76 @@
 [
     {
         "letra": "A", 
-        "ejemplo": "Amor"
+        "letra2": "a"
     },
     {
         "letra": "B", 
-        "ejemplo": "Beso"
+        "letra2": "b"
     },
     {
         "letra": "C", 
-        "ejemplo": "Cama"
+        "letra2": "c"
     },
     {
         "letra": "D", 
-        "ejemplo": "Amor"
+        "letra2": "d"
     },
     {
         "letra": "E", 
-        "ejemplo": "Beso"
+        "letra2": "e"
     },
  
     {
         "letra": "G", 
-        "ejemplo": "Amor"
+        "letra2": "g"
     },
 
     {
         "letra": "J", 
-        "ejemplo": "Amor"
+        "letra2": "j"
     },
     {
         "letra": "K", 
-        "ejemplo": "Beso"
+        "letra2": "k"
     },
     {
         "letra": "L", 
-        "ejemplo": "Cama"
+        "letra2": "l"
     },
     {
         "letra": "M", 
-        "ejemplo": "Amor"
+        "letra2": "m"
     },
     {
         "letra": "N", 
-        "ejemplo": "Beso"
+        "letra2": "n"
     },
     {
         "letra": "Ñ", 
-        "ejemplo": "Beso"
+        "letra2": "ñ"
     },
     {
         "letra": "O", 
-        "ejemplo": "Amor"
+        "letra2": "Ö"
     },
     {
         "letra": "R", 
-        "ejemplo": "Amor"
+        "letra2": "r"
     },
     {
         "letra": "S", 
-        "ejemplo": "Beso"
+        "letra2": "s"
     },
     {
         "letra": "T", 
-        "ejemplo": "Cama"
+        "letra2": "t"
     },
     {
         "letra": "U", 
-        "ejemplo": "Amor"
+        "letra2": "u"
     },
      {
         "letra": "Y", 
-        "ejemplo": "Beso"
+        "letra2": "y"
     }
 ]
