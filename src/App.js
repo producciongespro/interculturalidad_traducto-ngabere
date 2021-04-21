@@ -15,6 +15,7 @@ import EducaticoMovil from "./componentes/EducaticoMovil";
 import Detalle from "./componentes/Detalle";
 import DetalleMovil from "./componentes/DetalleMovil";
 import PreloadAssets from "./componentes/PreloadAssets/PreloadAssets";
+import PreloadAudios from "./componentes/Test-preload-audios/PreloadAudios";
 
 import config from "./data/config.json";
 import assets from "./data/config.json";
@@ -172,9 +173,7 @@ function App() {
   };
 
   const [ejemplo, setEjemplo] = useState(null);
-  const handleObtenerPorLetra = (e) => {  
-  
-
+  const handleObtenerPorLetra = (e) => {
     for (let index = 0; index < datosFiltrados.length; index++) {
       if (
         datosFiltrados[index].t_gnabere.charAt(0) === e.target.id ||
@@ -208,7 +207,7 @@ function App() {
           <PreloadAssets
             key={"img" + i}
             url={imgGenerales + item.url_imagen}
-            id= {item.id}            
+            id={item.id}
             alt="detalle"
           />
         ))}
@@ -290,6 +289,8 @@ function App() {
               </React.Fragment>
             ) : (
               <React.Fragment>
+                <PreloadAudios />
+
                 <div className="row" id="">
                   <div className="col-1">
                     <img
