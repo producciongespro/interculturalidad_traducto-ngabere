@@ -11,7 +11,7 @@ const PreloadAudios = (props) => {
         <div className="row">
           <audio 
           controls 
-          src="./audios/test-preloa.mp3"
+          src="./audios/test-preload.mp3"
           onError={handleError}
 
           ></audio>

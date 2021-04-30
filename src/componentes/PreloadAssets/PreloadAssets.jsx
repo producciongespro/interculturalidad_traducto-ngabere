@@ -19,6 +19,10 @@ export default function PreloadAssets(props) {
     sessionStorage.setItem("imagenes", JSON.stringify(imagenes));
   };
 
+  const handleErrorAudio =(error)=> {
+    console.log("Error", error);
+}
+
   useEffect(() => {
     //console.log("imagenes*********", imagenes);
     const imagen = { id, url, isError: false };
@@ -27,13 +31,19 @@ export default function PreloadAssets(props) {
   }, []);
 
   return (
-    <img className="img-invisible" onError={validarError} src={url} alt={alt} />
+    <div className="row">
+      <img className="img-invisible" onError={validarError} src={url} alt={alt} />
+     { /*
+      <audio
+        controls
+        src="./audios/test-preload.mp3"
+        onError={handleErrorAudio}
+
+      ></audio>
+      */
+    }
+    </div>
+
+
   );
 }
-
-/*
-
-const imagen = { id, url };
-    imagenes.push
-
- */
