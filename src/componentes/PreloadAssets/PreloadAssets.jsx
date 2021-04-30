@@ -19,9 +19,6 @@ export default function PreloadAssets(props) {
     sessionStorage.setItem("imagenes", JSON.stringify(imagenes));
   };
 
-  const handleErrorAudio =(error)=> {
-    console.log("Error", error);
-}
 
   useEffect(() => {
     //console.log("imagenes*********", imagenes);
@@ -32,16 +29,7 @@ export default function PreloadAssets(props) {
 
   return (
     <div className="row">
-      <img className="img-invisible" onError={validarError} src={url} alt={alt} />
-     { /*
-      <audio
-        controls
-        src="./audios/test-preload.mp3"
-        onError={handleErrorAudio}
-
-      ></audio>
-      */
-    }
+      <img className="img-invisible" onError={validarError} src={url} alt={alt} />    
     </div>
 
 

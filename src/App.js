@@ -289,7 +289,7 @@ function App() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                <PreloadAudios />
+                <PreloadAudios array={datosJson} />
 
                 <div className="row" id="">
                   <div className="col-1">

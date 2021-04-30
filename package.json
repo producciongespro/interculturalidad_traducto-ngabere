@@ -12,7 +12,8 @@
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.0",
     "react-multi-carousel": "^2.5.5",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "react-sound": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
