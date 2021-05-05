@@ -2,6 +2,9 @@ import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
 import getStoredImg from "../utils/customStorage";
+
+import Social from "./Social/Social";
+
 // import error from './Errorimagen';
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
