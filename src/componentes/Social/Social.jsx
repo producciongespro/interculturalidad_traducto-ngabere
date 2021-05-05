@@ -23,7 +23,7 @@ export default function Social(props) {
       like: 0,
       dislike: 0,
     };
-    //console.log(e.currentTarget.id);
+    console.log(e.currentTarget.id);
     //LIKES --------------------------------
     if (e.currentTarget.id === "btnLike" ) {
       if (stateLike) {
@@ -65,6 +65,7 @@ export default function Social(props) {
         data.dislike = 1;
       }
     }
+    console.log(data);
     props.putLikesDislikes(data);
   };
 

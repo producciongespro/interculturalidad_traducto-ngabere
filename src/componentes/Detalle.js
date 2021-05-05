@@ -9,6 +9,23 @@ import Social from "./Social/Social";
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
 
+const configSocial = {
+  fill: "#0ab3f2",
+  fill2: "#ff5733", 
+  size: "small"    
+};
+
+const item = {
+  id: "123",
+  likes: 125,
+  dislikes: 32,
+  views: 4587  
+};
+
+const putLikesDislikes = (data) => {
+  console.log("data", data);
+};
+
 
 
 function Detalle(props) {
@@ -79,17 +96,9 @@ function Detalle(props) {
 
               <div className="row text-center">
                 <div className="col-12">
-                  <span className="iconos">
-                    <i className="fa fa-thumbs-o-up">{props.info.me_gusta}</i>
-                  </span>
-                  <span className="iconos">
-                    <i className="fa fa-thumbs-o-down">
-                      {props.info.no_me_gusta}
-                    </i>
-                  </span>
-                  <span className="iconos">
-                    <i className="fa fa-eye">{props.info.vistas}</i>
-                  </span>
+                  
+                  <Social  putLikesDislikes={putLikesDislikes} config= {configSocial} item={item} />
+                  
                 </div>
               </div>
             </div>
