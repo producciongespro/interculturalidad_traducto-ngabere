@@ -17,12 +17,15 @@ import DetalleMovil from "./componentes/DetalleMovil";
 import PreloadAssets from "./componentes/PreloadAssets/PreloadAssets";
 import PreloadAudios from "./componentes/Test-preload-audios/PreloadAudios";
 
+import preloadImage from "./utils/preload-image";
+
 import config from "./data/config.json";
 import assets from "./data/config.json";
 import "./css/master.css";
 const imgGenerales = assets.img.general;
 var datosJson = null;
 var plataforma = "";
+let images=[];
 const fondos = config.img.general;
 console.log("fondos", fondos);
 
@@ -50,7 +53,18 @@ function App() {
     datosJson = await response.json();
     console.log("Array", datosJson);
     setisReady(true);
+    precargarImagenes(datosJson);
     setDatosFiltrados(datosJson);
+  }
+
+  const precargarImagenes=(array)=> {
+
+    for (let index = 0; index < array.length; index++) {
+      console.log("datosJson.url_imagen", array[index].url_imagen);
+      images[index] = new Image();
+      //preloadImage(images[index], imgGenerales + array[index].url_imagen )      
+    }
+
   }
 
   const modal = () => {
@@ -202,7 +216,8 @@ function App() {
 
   return (
     <div className="">
-      {isReady &&
+      {/*
+      isReady &&
         datosJson.map((item, i) => (
           <PreloadAssets
             key={"img" + i}
@@ -210,7 +225,9 @@ function App() {
             id={item.id}
             alt="detalle"
           />
-        ))}
+        ))
+        */
+        }
 
       {isReady ? (
         <React.Fragment>
@@ -289,7 +306,10 @@ function App() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                <PreloadAudios array={datosJson} />
+                {
+                //  <PreloadAudios array={datosJson} />
+                }
+                
 
                 <div className="row" id="">
                   <div className="col-1">
