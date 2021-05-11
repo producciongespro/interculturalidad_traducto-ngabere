@@ -25,7 +25,7 @@ import "./css/master.css";
 const imgGenerales = assets.img.general;
 var datosJson = null;
 var plataforma = "";
-let images=[];
+let images = [];
 const fondos = config.img.general;
 console.log("fondos", fondos);
 
@@ -57,15 +57,19 @@ function App() {
     setDatosFiltrados(datosJson);
   }
 
-  const precargarImagenes=(array)=> {
+  const precargarImagenes = async (array) => {
+    
+  await array.forEach((item, i) => {
+    //console.log("item",item.url_imagen );
+    images[i] = new Image();
+    preloadImage(images[i], imgGenerales + item.url_imagen);    
+  });    
+    
+  //console.log("images >>>>", images[1].src );
+  };
 
-    for (let index = 0; index < array.length; index++) {
-      console.log("datosJson.url_imagen", array[index].url_imagen);
-      images[index] = new Image();
-      //preloadImage(images[index], imgGenerales + array[index].url_imagen )      
-    }
 
-  }
+
 
   const modal = () => {
     return (
@@ -226,8 +230,7 @@ function App() {
             alt="detalle"
           />
         ))
-        */
-        }
+        */}
 
       {isReady ? (
         <React.Fragment>
@@ -307,9 +310,8 @@ function App() {
             ) : (
               <React.Fragment>
                 {
-                //  <PreloadAudios array={datosJson} />
+                  //  <PreloadAudios array={datosJson} />
                 }
-                
 
                 <div className="row" id="">
                   <div className="col-1">

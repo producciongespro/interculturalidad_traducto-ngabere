@@ -63,10 +63,13 @@ function Detalle(props) {
               <div className="text-center">
                 {
                   console.log("props.info.id",props.info.id)
-                }               
+                } 
+                {
+                  console.log("props.info.url_imagen", props.info.url_imagen)
+                }              
                 <img
-                  className="img-fluid"
-                  src={getStoredImg(props.info.id)}
+                  className="img-fluid"                  
+                  src={ imgGenerales + props.info.url_imagen }
                   alt={props.info.t_espanol}
                 />
               </div>
