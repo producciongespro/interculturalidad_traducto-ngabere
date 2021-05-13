@@ -1,7 +1,7 @@
 import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
-import {getImage} from "../utils/preload-assets";
+import { getImage, getAudio } from "../utils/preload-assets";
 
 import Social from "./Social/Social";
 
@@ -11,24 +11,28 @@ const audios = sonidos.mp3.general;
 
 const configSocial = {
   fill: "#0ab3f2",
-  fill2: "#ff5733", 
-  size: "small"    
+  fill2: "#ff5733",
+  size: "small",
 };
 
 const item = {
   id: "123",
   likes: 125,
   dislikes: 32,
-  views: 4587  
+  views: 4587,
 };
 
 const putLikesDislikes = (data) => {
   console.log("data", data);
 };
 
-
-
 function Detalle(props) {
+  let urlAudio;
+  if (props.info) {
+    urlAudio = getAudio(props.audios, props.info.id);  
+  }
+  
+
   return (
     <div className="col-9">
       <div className="row" id="detalle">
@@ -61,44 +65,30 @@ function Detalle(props) {
             <div id="audio-imagen" className="col-6">
               <br />
               <div className="text-center">
-                {
-                  console.log("props.info.id",props.info.id)
-                }                              
+                {console.log("props.info.id", props.info.id)}
                 <img
-                  className="img-fluid"                  
-                  src={ getImage(props.images, props.info.id) }
+                  className="img-fluid"
+                  src={getImage(props.images, props.info.id)}
                   alt={props.info.t_espanol}
                 />
-              </div>
-              {props.info.url_audio ? (
-                <React.Fragment>
+              </div>                           
                   <div className="text-center">
-                    <audio
-                      src={audios + props.info.url_audio}
-                      controls="controls"
-                      type="audio/mpeg"
-                      preload="preload"
-                    ></audio>
-                  </div>
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  <div className="text-center">
-                    <img                      
-                      className="img-fluid"
-                      id=""
-                      src={imgGenerales + "/subidos/imagenes/no_audio.png"}
-                      alt="Sin audio"
-                    />
-                  </div>
-                </React.Fragment>
-              )}
-
+                    {urlAudio ? (
+                      <audio
+                        src={audios + urlAudio}
+                        controls="controls"
+                      ></audio>
+                    ) : (
+                      <img className="img-fluid" src="./imagenes/no_audio.png" alt="no audio" />
+                    )}
+                  </div>                                          
               <div className="row text-center">
                 <div className="col-12">
-                  
-                  <Social  putLikesDislikes={putLikesDislikes} config= {configSocial} item={item} />
-                  
+                  <Social
+                    putLikesDislikes={putLikesDislikes}
+                    config={configSocial}
+                    item={item}
+                  />
                 </div>
               </div>
             </div>

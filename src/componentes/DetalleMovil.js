@@ -1,11 +1,17 @@
 import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
-import {getImage} from "../utils/preload-assets";
+import {getImage, getAudio} from "../utils/preload-assets";
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
 
 function DetalleMovil(props) {
+
+  let urlAudio;
+  if (props.info) {
+    urlAudio = getAudio(props.audios, props.info.id);  
+  }
+
   return (
     <div className="col-9" id="detalleMovil">
       <div className="row">
@@ -42,31 +48,17 @@ function DetalleMovil(props) {
                   alt={props.info.t_espanol}
                 />
               </div>
-              {props.info.url_audio !== null ? (
-                <React.Fragment>
-                  <div className="text-center">                    
-                    <br />
-                    <audio
-                      src={audios + props.info.url_audio}
-                      controls="controls"
-                      type="audio/mpeg"
-                      preload="preload"
-                    ></audio>
-                  </div>
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  <div className="text-center">
-                    <br />
-                    <img                      
-                      className="img-fluid ico-audio"
-                      id=""
-                      src={imgGenerales + "/subidos/imagenes/no_audio.png"}
-                      alt="Sin audio"
-                    />
-                  </div>
-                </React.Fragment>
-              )}
+
+              <div className="text-center">
+                    {urlAudio ? (
+                      <audio
+                        src={audios + urlAudio}
+                        controls="controls"
+                      ></audio>
+                    ) : (
+                      <img className="img-fluid" src="./imagenes/no_audio.png" alt="no audio" />
+                    )}
+                  </div>   
 
               <div className="row text-center">
                 <div className="col-12">

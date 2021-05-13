@@ -301,7 +301,7 @@ function App() {
                             nombreCient={nombreCient}
                             handleMostrarDetalle={handleMostrarDetalle}
                           />
-                          <DetalleMovil info={info} images={images} />
+                          <DetalleMovil info={info} images={images} audios={audios} />
                         </div>
                       </div>
                     </div>
@@ -341,7 +341,7 @@ function App() {
                             nombreCient={nombreCient}
                             handleMostrarDetalle={handleMostrarDetalle}
                           />
-                          <Detalle info={info} images={images} />
+                          <Detalle info={info} images={images} audios={audios} />
                         </div>
                       </div>
                     </div>
