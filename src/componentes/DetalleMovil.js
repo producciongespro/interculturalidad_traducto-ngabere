@@ -1,7 +1,7 @@
 import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
-import getStoredImg from "../utils/customStorage";
+import {getImage} from "../utils/preload-assets";
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
 
@@ -38,7 +38,7 @@ function DetalleMovil(props) {
               <div className="text-center">
                 <img
                   className="img-fluid imgMovil"                  
-                  src={getStoredImg(props.info.id)}
+                  src={getImage(props.images, props.info.id  )}
                   alt={props.info.t_espanol}
                 />
               </div>

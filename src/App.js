@@ -16,7 +16,7 @@ import Detalle from "./componentes/Detalle";
 import DetalleMovil from "./componentes/DetalleMovil";
 import PreloadAudios from "./componentes/Test-preload-audios/PreloadAudios";
 
-import {preloadImage} from "./utils/preload-assets";
+import {preloadImage, preloadAudio} from "./utils/preload-assets";
 
 import config from "./data/config.json";
 import assets from "./data/config.json";
@@ -24,7 +24,10 @@ import "./css/master.css";
 const imgGenerales = assets.img.general;
 var datosJson = null;
 var plataforma = "";
+// Arrgelos de imagenes y audios para precarga de assets
 const images = [];
+const audios = [];
+
 const fondos = config.img.general;
 console.log("fondos", fondos);
 
@@ -52,18 +55,20 @@ function App() {
     datosJson = await response.json();
     console.log("Array", datosJson);
     setisReady(true);
-    precargarImagenes(datosJson);
+    precargarAssets(datosJson);
     setDatosFiltrados(datosJson);
   }
 
-  const precargarImagenes = async (array) => {
+  const precargarAssets = async (array) => {
     
   await array.forEach((item, i) => {
     //console.log("item",item.url_imagen );   
     preloadImage(images, imgGenerales + item.url_imagen, item.id, "./imagenes/no_image.png" );    
+    preloadAudio (audios, item.url_audio, item.id)
   });    
     
-  console.log("images >>>>", images );
+  //console.log("images >>>>", images );
+  console.log("audios", audios);
   };
 
 
@@ -296,7 +301,7 @@ function App() {
                             nombreCient={nombreCient}
                             handleMostrarDetalle={handleMostrarDetalle}
                           />
-                          <DetalleMovil info={info} />
+                          <DetalleMovil info={info} images={images} />
                         </div>
                       </div>
                     </div>
