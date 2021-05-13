@@ -25,7 +25,7 @@ import "./css/master.css";
 const imgGenerales = assets.img.general;
 var datosJson = null;
 var plataforma = "";
-let images = [];
+const images = [];
 const fondos = config.img.general;
 console.log("fondos", fondos);
 
@@ -60,12 +60,11 @@ function App() {
   const precargarImagenes = async (array) => {
     
   await array.forEach((item, i) => {
-    //console.log("item",item.url_imagen );
-    images[i] = new Image();
-    preloadImage(images[i], imgGenerales + item.url_imagen);    
+    //console.log("item",item.url_imagen );   
+    preloadImage(images, imgGenerales + item.url_imagen, item.id, "./imagenes/no_image.png" );    
   });    
     
-  //console.log("images >>>>", images[1].src );
+  console.log("images >>>>", images );
   };
 
 
