@@ -14,10 +14,9 @@ import Educatico from "./componentes/Educatico";
 import EducaticoMovil from "./componentes/EducaticoMovil";
 import Detalle from "./componentes/Detalle";
 import DetalleMovil from "./componentes/DetalleMovil";
-import PreloadAssets from "./componentes/PreloadAssets/PreloadAssets";
 import PreloadAudios from "./componentes/Test-preload-audios/PreloadAudios";
 
-import preloadImage from "./utils/preload-image";
+import {preloadImage} from "./utils/preload-assets";
 
 import config from "./data/config.json";
 import assets from "./data/config.json";

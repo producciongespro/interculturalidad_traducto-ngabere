@@ -1,7 +1,7 @@
 import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
-import getImage from "../utils/get-image";
+import {getImage} from "../utils/preload-assets";
 
 import Social from "./Social/Social";
 
