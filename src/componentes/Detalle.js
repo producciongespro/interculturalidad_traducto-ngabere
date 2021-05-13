@@ -1,7 +1,7 @@
 import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
-import getStoredImg from "../utils/customStorage";
+import getImage from "../utils/get-image";
 
 import Social from "./Social/Social";
 
@@ -63,13 +63,10 @@ function Detalle(props) {
               <div className="text-center">
                 {
                   console.log("props.info.id",props.info.id)
-                } 
-                {
-                  console.log("props.info.url_imagen", props.info.url_imagen)
-                }              
+                }                              
                 <img
                   className="img-fluid"                  
-                  src={ imgGenerales + props.info.url_imagen }
+                  src={ getImage(props.images, props.info.id) }
                   alt={props.info.t_espanol}
                 />
               </div>

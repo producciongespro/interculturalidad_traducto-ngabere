@@ -337,7 +337,7 @@ function App() {
                             nombreCient={nombreCient}
                             handleMostrarDetalle={handleMostrarDetalle}
                           />
-                          <Detalle info={info} />
+                          <Detalle info={info} images={images} />
                         </div>
                       </div>
                     </div>
