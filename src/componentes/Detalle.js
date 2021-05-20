@@ -2,6 +2,7 @@ import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
 import { getImage, getAudio } from "../utils/preload-assets";
+import { sendData} from "gespro-utils/akiri";
 
 import Social from "./Social/Social";
 
@@ -15,15 +16,13 @@ const configSocial = {
   size: "small",
 };
 
-const item = {
-  id: "123",
-  likes: 125,
-  dislikes: 32,
-  views: 4587,
-};
 
-const putLikesDislikes = (data) => {
+
+const putLikesDislikes = async (data) => {
   console.log("data", data);
+  const resp = await sendData("https://recursos.mep.go.cr/2020/oscar/webservices/registrar_social.php", data);
+  console.log("resp", resp);
+  
 };
 
 function Detalle(props) {
@@ -87,7 +86,7 @@ function Detalle(props) {
                   <Social
                     putLikesDislikes={putLikesDislikes}
                     config={configSocial}
-                    item={item}
+                    item={props.info}
                   />
                 </div>
               </div>
