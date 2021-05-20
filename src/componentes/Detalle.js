@@ -20,7 +20,7 @@ const configSocial = {
 //http://localhost:3500/test
 
 const putLikesDislikes = async (data) => {
-  console.log("data", data);
+  console.log("data>>>>>>>>", data);
   const resp = await sendData("https://recursos.mep.go.cr/2020/oscar/webservices/registrar_social.php", data);
   console.log("resp", resp);
   

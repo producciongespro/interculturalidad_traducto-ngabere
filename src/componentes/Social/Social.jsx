@@ -10,7 +10,7 @@ import { ThumbsupIcon, ThumbsdownIcon, EyeIcon } from "@primer/octicons-react";
 import "./vendor/animate.min.css";
 
 export default function Social(props) {
-  console.log("props.item", props.item);
+  // console.log("props.item", props.item);
 
   const conf = props.config;
   const item = props.item;
@@ -18,7 +18,7 @@ export default function Social(props) {
   item.likes = parseInt(item.likes);
   item.dislikes = parseInt(item.dislikes);
 
-  console.log("item.likes---->", item.likes);
+  //console.log("item.likes---->", item.likes);
 
   //Estados que se despliegan en tarjetas:
   const [likes, setLikes] = useState(item.likes);
@@ -27,14 +27,15 @@ export default function Social(props) {
   const [stateLike, setStateLike] = useState(false);
   const [stateDislike, setStateDislike] = useState(false);
 
-  
-
   useEffect(() => {
-   // console.log("updated");
+    console.log("updated");
     setLikes(item.likes);
     setDislikes(item.dislikes);
   });
 
+  useEffect(() => {
+    console.log("likes>>>------>>>>>", likes);
+  }, []);
 
   const handleLikesDislikes = (e) => {
     const data = {
