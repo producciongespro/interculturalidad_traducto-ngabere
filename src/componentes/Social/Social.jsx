@@ -5,20 +5,36 @@ https://primer.style/octicons/packages/react
 
 npm install @primer/octicons-react
 */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ThumbsupIcon, ThumbsdownIcon, EyeIcon } from "@primer/octicons-react";
 import "./vendor/animate.min.css";
 
 export default function Social(props) {
+  console.log("props.item", props.item);
+
   const conf = props.config;
   const item = props.item;
-  const [likes, setLikes] = useState(props.item.likes);
-  const [dislikes, setDislikes] = useState(props.item.dislikes);
-  const [stateLike, setStateLike] = useState(false);
-  const [stateDislike, setStateDislike] = useState(false);
   //Parsing to Integer
   item.likes = parseInt(item.likes);
   item.dislikes = parseInt(item.dislikes);
+
+  console.log("item.likes---->", item.likes);
+
+  //Estados que se despliegan en tarjetas:
+  const [likes, setLikes] = useState(item.likes);
+  const [dislikes, setDislikes] = useState(item.dislikes);
+
+  const [stateLike, setStateLike] = useState(false);
+  const [stateDislike, setStateDislike] = useState(false);
+
+  
+
+  useEffect(() => {
+   // console.log("updated");
+    setLikes(item.likes);
+    setDislikes(item.dislikes);
+  });
+
 
   const handleLikesDislikes = (e) => {
     const data = {
@@ -61,10 +77,10 @@ export default function Social(props) {
           //Se deshabilita el like
           setStateLike(false);
           //Se resetea el conteo de likes a su número original:
-          setLikes(props.item.likes);
+          setLikes(likes);
           data.like = -1;
         }
-        setDislikes(props.item.dislikes + 1);
+        setDislikes(dislikes + 1);
         data.dislike = 1;
       }
     }
@@ -89,7 +105,6 @@ export default function Social(props) {
         />
         <br />
         <span style={stateLike ? { color: conf.fill2 } : { color: conf.fill }}>
-          {" "}
           {likes}
         </span>
       </div>
@@ -115,7 +130,6 @@ export default function Social(props) {
         <span
           style={stateDislike ? { color: conf.fill2 } : { color: conf.fill }}
         >
-          {" "}
           {dislikes}
         </span>
       </div>
