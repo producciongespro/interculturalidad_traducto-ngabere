@@ -16,7 +16,10 @@ export default function Social(props) {
   const [dislikes, setDislikes] = useState(props.item.dislikes);
   const [stateLike, setStateLike] = useState(false);
   const [stateDislike, setStateDislike] = useState(false);
-  
+  //Parsing to Integer
+  item.likes = parseInt(item.likes);
+  item.dislikes = parseInt(item.dislikes);
+
   const handleLikesDislikes = (e) => {
     const data = {
       id: item.id,
@@ -25,11 +28,11 @@ export default function Social(props) {
     };
     console.log(e.currentTarget.id);
     //LIKES --------------------------------
-    if (e.currentTarget.id === "btnLike" ) {
+    if (e.currentTarget.id === "btnLike") {
       if (stateLike) {
         setStateLike(false);
         setLikes(props.item.likes);
-        data.like = -1;        
+        data.like = -1;
       } else {
         setStateLike(true);
         //coprueba si el dislike fue seleccionado antes
@@ -40,16 +43,16 @@ export default function Social(props) {
           data.dislike = -1;
         }
 
-        setLikes(props.item.likes + 1);        
+        setLikes(props.item.likes + 1);
         data.like = 1;
       }
     }
 
     //DISLIKES ------------------
-    if (e.currentTarget.id === "btnDislike" ) {
+    if (e.currentTarget.id === "btnDislike") {
       if (stateDislike) {
         setStateDislike(false);
-        setDislikes(props.item.dislikes);        
+        setDislikes(props.item.dislikes);
         data.dislike = -1;
       } else {
         setStateDislike(true);
@@ -61,7 +64,7 @@ export default function Social(props) {
           setLikes(props.item.likes);
           data.like = -1;
         }
-        setDislikes(props.item.dislikes + 1);        
+        setDislikes(props.item.dislikes + 1);
         data.dislike = 1;
       }
     }
@@ -73,19 +76,22 @@ export default function Social(props) {
     <div className="row">
       <div
         id="btnLike"
-        className="col-4 text-center"       
+        className="col-4 text-center"
         role="button"
         onClick={handleLikesDislikes}
       >
         <ThumbsupIcon
           verticalAlign="middle"
-          className={stateLike ? "animate__animated animate__bounce" : null }
+          className={stateLike ? "animate__animated animate__bounce" : null}
           size={conf.size}
-          fill={stateLike ?  conf.fill2 :  conf.fill}
+          fill={stateLike ? conf.fill2 : conf.fill}
           aria-label="me gusta"
         />
         <br />
-        <span style={ stateLike ?  { color: conf.fill2 } : { color: conf.fill }  } > {likes}</span>
+        <span style={stateLike ? { color: conf.fill2 } : { color: conf.fill }}>
+          {" "}
+          {likes}
+        </span>
       </div>
       <div
         id="btnDislike"
@@ -100,13 +106,18 @@ export default function Social(props) {
       >
         <ThumbsdownIcon
           verticalAlign="middle"
-          className={stateDislike ? "animate__animated animate__flip" : null }
+          className={stateDislike ? "animate__animated animate__flip" : null}
           size={conf.size}
-          fill={ stateDislike ?  conf.fill2 : conf.fill }
+          fill={stateDislike ? conf.fill2 : conf.fill}
           aria-label="no me gusta"
         />
         <br />
-        <span style={ stateDislike ?   {  color: conf.fill2 }  : {  color: conf.fill }   }> {dislikes}</span>
+        <span
+          style={stateDislike ? { color: conf.fill2 } : { color: conf.fill }}
+        >
+          {" "}
+          {dislikes}
+        </span>
       </div>
       <div className="col-4 text-center">
         <EyeIcon size={conf.size} fill={conf.fill} aria-label="vistas" />
