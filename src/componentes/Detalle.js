@@ -31,6 +31,8 @@ function Detalle(props) {
   if (props.info) {
     urlAudio = getAudio(props.audios, props.info.id);  
   }
+
+  //console.log("----------------------------urlAudio", urlAudio);
   
 
   return (

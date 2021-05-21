@@ -313,7 +313,7 @@ function App() {
             ) : (
               <React.Fragment>
                 {
-                  //  <PreloadAudios array={datosJson} />
+                    <PreloadAudios array={datosJson} />
                 }
 
                 <div className="row" id="">

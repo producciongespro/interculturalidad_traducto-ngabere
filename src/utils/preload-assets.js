@@ -48,6 +48,8 @@ exports.preloadAudio = function (audios, url, id) {
     id: id,
     audio: url != null ? new Audio(url) : null,
   };
+
+  
 /*
 TODO: Validar si itemaudio no es nulo para asignarle el handler
   itemAudio.audio.onerror = function () {
@@ -66,6 +68,6 @@ exports.getAudio = function (audios, id) {
         urlAudio = item.audio.src;
       }
     }
-  });
+  });  
   return urlAudio;
 };

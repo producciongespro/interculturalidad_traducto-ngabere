@@ -21,11 +21,13 @@ export default function Social(props) {
 
   const conf = props.config;
   const item = props.item;
+
+
   //Parsing to Integer
   item.likes = parseInt(item.likes);
   item.dislikes = parseInt(item.dislikes);
 
-  //console.log("item.likes---->", item.likes);
+  console.log("------item",item);
 
   //Estados que se despliegan en tarjetas:
   const [likes, setLikes] = useState(item.likes);
@@ -39,9 +41,6 @@ export default function Social(props) {
     setup(item.id);
   });
 
-  useEffect(() => {
-    //console.log("likes>>>------>>>>>", likes);
-  }, []);
 
   const setup = (id) => {
     //console.log("tmpId", tmpId);
@@ -101,13 +100,13 @@ export default function Social(props) {
   const getTmpInfo = (id) => {
     //recorre el array para determinar si la palabra ya está guardada
     //debido a que le dio like o dislike
-    console.log("///////tmpLikesDislikes", tmpLikesDislikes);
-    console.log("///////id", id);
+    //console.log("///////tmpLikesDislikes", tmpLikesDislikes);
+    //console.log("///////id", id);
     let tmpElement = null;
     if (tmpLikesDislikes.length > 0) {
-      console.log("Inicio de BUSQUEDA::::");
+      //console.log("Inicio de BUSQUEDA::::");
       tmpLikesDislikes.forEach((element) => {
-        console.log("element.id", element.id);
+        //console.log("element.id", element.id);
         if (element.id === id) {
           tmpElement= element;
         }
@@ -172,7 +171,7 @@ export default function Social(props) {
       //Alamacena en array el item que le dio dislike
       setTmpInfo("dislikes");
     }
-    console.log(data);
+    //console.log(data);
     props.putLikesDislikes(data);
   };
 
