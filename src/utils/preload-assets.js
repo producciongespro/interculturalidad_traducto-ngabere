@@ -33,7 +33,7 @@ exports.getImage = function (images, id) {
 };
 
 const handleErrorImage = (e, id, images, urlNoImage) => {
-  console.log("Error en", id, ">>>>", e);
+  //console.log("Error en", id, ">>>>", e);
   for (let index = 0; index < images.length; index++) {
     if (images[index].id === id) {
       images[index].img.src = urlNoImage;

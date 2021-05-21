@@ -60,6 +60,10 @@ export default function Social(props) {
         //Verifica si ese item ya exites en el array temporal
         const tmpItem = getTmpInfo(item.id);
         console.log("tmpItem>>>>>---", tmpItem);
+        if (tmpItem) {
+          item.likes = tmpItem.likes;
+          item.dislikes = tmpItem.dislikes;
+        }
 
         //carga los estados con la información del nuevo item:
         setLikes(item.likes);
@@ -97,17 +101,19 @@ export default function Social(props) {
   const getTmpInfo = (id) => {
     //recorre el array para determinar si la palabra ya está guardada
     //debido a que le dio like o dislike
-    console.log("tmpLikesDislikes", tmpLikesDislikes);
-    console.log("id", id);
-
+    console.log("///////tmpLikesDislikes", tmpLikesDislikes);
+    console.log("///////id", id);
+    let tmpElement = null;
     if (tmpLikesDislikes.length > 0) {
+      console.log("Inicio de BUSQUEDA::::");
       tmpLikesDislikes.forEach((element) => {
+        console.log("element.id", element.id);
         if (element.id === id) {
-          return element;
+          tmpElement= element;
         }
       });
     }
-    return null;
+    return tmpElement;
   };
 
   const handleLikesDislikes = (e) => {
