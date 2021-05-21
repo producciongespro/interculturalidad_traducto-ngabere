@@ -35,17 +35,17 @@ export default function Social(props) {
   const [stateDislike, setStateDislike] = useState(false);
 
   useEffect(() => {
-    console.log("updated");
+    //console.log("updated");
     setup(item.id);
   });
 
   useEffect(() => {
-    console.log("likes>>>------>>>>>", likes);
+    //console.log("likes>>>------>>>>>", likes);
   }, []);
 
   const setup = (id) => {
-    console.log("tmpId", tmpId);
-    console.log("id", id);
+    //console.log("tmpId", tmpId);
+    //console.log("id", id);
     if (!tmpId) {
       // Cuando el componente se carga por primera vez
       tmpId = id;
@@ -57,6 +57,10 @@ export default function Social(props) {
         //resetea los estados
         setStateLike(false);
         setStateDislike(false);
+        //Verifica si ese item ya exites en el array temporal
+        const tmpItem = getTmpInfo(item.id);
+        console.log("tmpItem>>>>>---", tmpItem);
+
         //carga los estados con la información del nuevo item:
         setLikes(item.likes);
         setDislikes(item.dislikes);
@@ -77,17 +81,33 @@ export default function Social(props) {
       });
     }
     if (!encontrado) {
-      //Si no está encontrado creamos el objeto con la información 
+      //Si no está encontrado creamos el objeto con la información
       //ya sea con el like o dislike que ingresó el usuario
       const tmp = {
         id: item.id,
         likes: tipo === "likes" ? item.likes + 1 : item.likes,
-        dislikes: tipo === "dislikes" ? item.dislikes + 1 : item.dislikes
+        dislikes: tipo === "dislikes" ? item.dislikes + 1 : item.dislikes,
       };
       tmpLikesDislikes.push(tmp);
     }
 
     console.log("tmpLikesDislikes", tmpLikesDislikes);
+  };
+
+  const getTmpInfo = (id) => {
+    //recorre el array para determinar si la palabra ya está guardada
+    //debido a que le dio like o dislike
+    console.log("tmpLikesDislikes", tmpLikesDislikes);
+    console.log("id", id);
+
+    if (tmpLikesDislikes.length > 0) {
+      tmpLikesDislikes.forEach((element) => {
+        if (element.id === id) {
+          return element;
+        }
+      });
+    }
+    return null;
   };
 
   const handleLikesDislikes = (e) => {
