@@ -9,6 +9,8 @@ import React, { useState, useEffect } from "react";
 import { ThumbsupIcon, ThumbsdownIcon, EyeIcon } from "@primer/octicons-react";
 import "./vendor/animate.min.css";
 
+let tmpId = null;
+
 export default function Social(props) {
   // console.log("props.item", props.item);
 
@@ -28,14 +30,38 @@ export default function Social(props) {
   const [stateDislike, setStateDislike] = useState(false);
 
   useEffect(() => {
-    console.log("updated");
-    setLikes(item.likes);
-    setDislikes(item.dislikes);
+    console.log("updated");  
+    setup (item.id);
   });
 
   useEffect(() => {
-    console.log("likes>>>------>>>>>", likes);
+    console.log("likes>>>------>>>>>", likes);    
   }, []);
+
+
+  const setup =(id)=> {
+    console.log("tmpId", tmpId);
+    console.log("id", id);
+    if (!tmpId) {
+      // Cuando el componente se carga por primera vez
+      tmpId = id;
+      setLikes(item.likes);
+      setDislikes(item.dislikes); 
+    } else {
+      if (tmpId !== id) {
+        // si carga otra palabra
+        //resetea los estados
+        setStateLike(false);
+        setStateDislike(false);
+        //carga los estados con la información del nuevo item:
+        setLikes(item.likes);
+        setDislikes(item.dislikes); 
+        //Asigna el nuevo id
+        tmpId = id
+      }
+
+    }
+  }
 
   const handleLikesDislikes = (e) => {
     const data = {
@@ -47,10 +73,14 @@ export default function Social(props) {
     //LIKES --------------------------------
     if (e.currentTarget.id === "btnLike") {
       if (stateLike) {
+        //Si antes fue seleccionado el like
         setStateLike(false);
+        //Se le asigna la cantidad original
         setLikes(props.item.likes);
+        //Se envia LIKE - al servidor
         data.like = -1;
       } else {
+        //Si no fue clickeado el like antes:
         setStateLike(true);
         //coprueba si el dislike fue seleccionado antes
         if (stateDislike) {
@@ -59,7 +89,7 @@ export default function Social(props) {
           setDislikes(props.item.dislikes);
           data.dislike = -1;
         }
-
+        //incrementa el like y envia LIKE 1 al servidor
         setLikes(props.item.likes + 1);
         data.like = 1;
       }
