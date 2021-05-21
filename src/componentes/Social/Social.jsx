@@ -9,7 +9,12 @@ import React, { useState, useEffect } from "react";
 import { ThumbsupIcon, ThumbsdownIcon, EyeIcon } from "@primer/octicons-react";
 import "./vendor/animate.min.css";
 
+// id del item actual
+//Se utiliza para comparar si ha caregado una palabra nueva para resetear los estados
 let tmpId = null;
+
+//Arreglo de objetos con info de las palabras que les ha dado likes y dislikes
+let tmpLikesDislikes = [];
 
 export default function Social(props) {
   // console.log("props.item", props.item);
@@ -30,23 +35,22 @@ export default function Social(props) {
   const [stateDislike, setStateDislike] = useState(false);
 
   useEffect(() => {
-    console.log("updated");  
-    setup (item.id);
+    console.log("updated");
+    setup(item.id);
   });
 
   useEffect(() => {
-    console.log("likes>>>------>>>>>", likes);    
+    console.log("likes>>>------>>>>>", likes);
   }, []);
 
-
-  const setup =(id)=> {
+  const setup = (id) => {
     console.log("tmpId", tmpId);
     console.log("id", id);
     if (!tmpId) {
       // Cuando el componente se carga por primera vez
       tmpId = id;
       setLikes(item.likes);
-      setDislikes(item.dislikes); 
+      setDislikes(item.dislikes);
     } else {
       if (tmpId !== id) {
         // si carga otra palabra
@@ -55,13 +59,36 @@ export default function Social(props) {
         setStateDislike(false);
         //carga los estados con la información del nuevo item:
         setLikes(item.likes);
-        setDislikes(item.dislikes); 
+        setDislikes(item.dislikes);
         //Asigna el nuevo id
-        tmpId = id
+        tmpId = id;
       }
-
     }
-  }
+  };
+
+  const setTmpInfo = (tipo) => {
+    let encontrado = false;
+    if (tmpLikesDislikes.length > 0) {
+      tmpLikesDislikes.forEach((element) => {
+        //Busca en el array si exite el objeto con el id actual
+        if (element.id === item.id) {
+          encontrado = true;
+        }
+      });
+    }
+    if (!encontrado) {
+      //Si no está encontrado creamos el objeto con la información 
+      //ya sea con el like o dislike que ingresó el usuario
+      const tmp = {
+        id: item.id,
+        likes: tipo === "likes" ? item.likes + 1 : item.likes,
+        dislikes: tipo === "dislikes" ? item.dislikes + 1 : item.dislikes
+      };
+      tmpLikesDislikes.push(tmp);
+    }
+
+    console.log("tmpLikesDislikes", tmpLikesDislikes);
+  };
 
   const handleLikesDislikes = (e) => {
     const data = {
@@ -93,6 +120,8 @@ export default function Social(props) {
         setLikes(props.item.likes + 1);
         data.like = 1;
       }
+      //Alamacena en array el item que le dio like
+      setTmpInfo("likes");
     }
 
     //DISLIKES ------------------
@@ -114,6 +143,8 @@ export default function Social(props) {
         setDislikes(dislikes + 1);
         data.dislike = 1;
       }
+      //Alamacena en array el item que le dio dislike
+      setTmpInfo("dislikes");
     }
     console.log(data);
     props.putLikesDislikes(data);
