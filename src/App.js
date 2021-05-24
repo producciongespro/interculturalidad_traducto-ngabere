@@ -14,9 +14,8 @@ import Educatico from "./componentes/Educatico";
 import EducaticoMovil from "./componentes/EducaticoMovil";
 import Detalle from "./componentes/Detalle";
 import DetalleMovil from "./componentes/DetalleMovil";
-import PreloadAudios from "./componentes/Test-preload-audios/PreloadAudios";
 
-import {preloadImage, preloadAudio} from "./utils/preload-assets";
+import {preloadImage, preloadAudios} from "./utils/preload-assets";
 
 import config from "./data/config.json";
 import assets from "./data/config.json";
@@ -56,6 +55,9 @@ function App() {
     console.log("Array", datosJson);
     setisReady(true);
     precargarAssets(datosJson);
+
+    preloadAudios(datosJson, audios);
+
     setDatosFiltrados(datosJson);
   }
 
@@ -64,7 +66,7 @@ function App() {
   await array.forEach((item, i) => {
     //console.log("item",item.url_imagen );   
     preloadImage(images, imgGenerales + item.url_imagen, item.id, "./imagenes/no_image.png" );    
-    preloadAudio (audios, item.url_audio, item.id)
+    
   });    
     
   //console.log("images >>>>", images );
@@ -311,10 +313,7 @@ function App() {
                 {modal()}
               </React.Fragment>
             ) : (
-              <React.Fragment>
-                {
-                    <PreloadAudios array={datosJson} />
-                }
+              <React.Fragment>               
 
                 <div className="row" id="">
                   <div className="col-1">

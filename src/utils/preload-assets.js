@@ -41,33 +41,50 @@ const handleErrorImage = (e, id, images, urlNoImage) => {
   }
 };
 
-//AUDIOS
+exports.preloadAudios = function (array, audios ) {  
+  let itemAudio;
 
-exports.preloadAudio = function (audios, url, id) {
-  const itemAudio = {
-    id: id,
-    audio: url != null ? new Audio(url) : null,
-  };
+  array.forEach((element) => {
+    // console.log(element.url_audio);
+    //console.log(typeof(element.url_audio));
 
-  
-/*
-TODO: Validar si itemaudio no es nulo para asignarle el handler
-  itemAudio.audio.onerror = function () {
-    console.log("error");
-  };
-*/
-  audios.push(itemAudio);
-};
-
-exports.getAudio = function (audios, id) {
-  let urlAudio = null;
-
-  audios.forEach((item) => {
-    if (item.id === id) {
-      if (item.audio) {
-        urlAudio = item.audio.src;
-      }
+    if (element.url_audio) {
+      const audio = new Audio(element.url_audio);
+      itemAudio = {
+        id: element.id,
+        audio,
+      };
+      audios.push(itemAudio);
     }
   });  
-  return urlAudio;
 };
+
+exports.getUrl = function (array, id) {
+    console.log("id", id);
+    let tmpUrl=null;
+
+    array.forEach((element) => {
+      if (element.id == id) {
+          console.log( "URL", element.audio.src);
+          tmpUrl = element.audio.src;          
+      } 
+    });
+    return tmpUrl;
+  };
+
+exports.renderAudio = function (url) {
+  const visor = document.getElementById("visor");
+  if (url) {
+    visor.innerHTML = `
+              <audio  controls /> 
+                  <source src= ${url}  type= "audio/mp3">
+              </audio>
+              `;
+  } else {
+    visor.innerHTML = `
+              <img src="./assets/img/no_audio.png" alt="no audio" />
+              `;
+  }
+};
+
+

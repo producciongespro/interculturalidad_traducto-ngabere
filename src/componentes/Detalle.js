@@ -1,7 +1,7 @@
 import React from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
-import { getImage, getAudio } from "../utils/preload-assets";
+import { getImage, getUrl } from "../utils/preload-assets";
 import { sendData} from "gespro-utils/akiri";
 
 import Social from "./Social/Social";
@@ -29,10 +29,11 @@ const putLikesDislikes = async (data) => {
 function Detalle(props) {
   let urlAudio;
   if (props.info) {
-    urlAudio = getAudio(props.audios, props.info.id);  
+    urlAudio = getUrl(props.audios, props.info.id);    
+
   }
 
-  //console.log("----------------------------urlAudio", urlAudio);
+  console.log("----------------------------urlAudio", urlAudio);
   
 
   return (
@@ -77,7 +78,7 @@ function Detalle(props) {
                   <div className="text-center">
                     {urlAudio ? (
                       <audio
-                        src={audios + urlAudio}
+                        src={urlAudio}
                         controls="controls"
                       ></audio>
                     ) : (
