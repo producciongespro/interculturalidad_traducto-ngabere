@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
 import { getImage, getUrl } from "../utils/preload-assets";
@@ -32,8 +32,22 @@ function Detalle(props) {
   if (props.info) {
     urlAudio = getUrl(props.audios, props.info.id);
   }
-
   //console.log("----------------------------urlAudio", urlAudio);
+
+  useEffect(() => {
+   setup();
+  });
+
+  const setup = async () => {
+    if (props.info && props.info !== "limpiar") {
+      const data = { id: props.info.id };
+      const resp = await sendData(
+        "https://recursos.mep.go.cr/2020/oscar/webservices/registrar_vista.php",
+        data
+      );
+      console.log("respuesta del servidor vistas:", resp);
+    }
+  };
 
   return (
     <div className="col-9">
@@ -68,7 +82,7 @@ function Detalle(props) {
               <br />
               <div className="text-center">
                 {
-                //console.log("props.info.id", props.info.id)
+                  //console.log("props.info.id", props.info.id)
                 }
                 <img
                   className="img-fluid"
