@@ -67,7 +67,9 @@ function Detalle(props) {
             <div id="audio-imagen" className="col-6">
               <br />
               <div className="text-center">
-                {console.log("props.info.id", props.info.id)}
+                {
+                //console.log("props.info.id", props.info.id)
+                }
                 <img
                   className="img-fluid"
                   src={getImage(props.images, props.info.id)}

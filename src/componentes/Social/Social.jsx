@@ -22,12 +22,11 @@ export default function Social(props) {
   const conf = props.config;
   const item = props.item;
 
-
   //Parsing to Integer
   item.likes = parseInt(item.likes);
   item.dislikes = parseInt(item.dislikes);
 
-  console.log("------item",item);
+  // console.log("------item",item);
 
   //Estados que se despliegan en tarjetas:
   const [likes, setLikes] = useState(item.likes);
@@ -40,7 +39,6 @@ export default function Social(props) {
     //console.log("updated");
     setup(item.id);
   });
-
 
   const setup = (id) => {
     //console.log("tmpId", tmpId);
@@ -57,11 +55,26 @@ export default function Social(props) {
         setStateLike(false);
         setStateDislike(false);
         //Verifica si ese item ya exites en el array temporal
-        const tmpItem = getTmpInfo(item.id);
+
+        //Carga el item del arreglo tmpLikesDislikes
+        //mediante la función getTmpInfo
+        //Si es vaíldo es poruqe se le ha dado like o dislike en algún momento
+        let tmpItem = getTmpInfo(item.id);
         console.log("tmpItem>>>>>---", tmpItem);
+        //etiquetas de cantidades likes y dislikes de tarjeta (palabra)
         if (tmpItem) {
           item.likes = tmpItem.likes;
           item.dislikes = tmpItem.dislikes;
+
+          //Modificación de estados likes y dislikes
+          //LIKES
+          if (tmpItem.state === "likes") {
+            setStateLike(true);
+          }
+          //DISLIKES
+          if (tmpItem.state === "dislikes") {
+            setStateDislike(true);
+          }
         }
 
         //carga los estados con la información del nuevo item:
@@ -90,6 +103,7 @@ export default function Social(props) {
         id: item.id,
         likes: tipo === "likes" ? item.likes + 1 : item.likes,
         dislikes: tipo === "dislikes" ? item.dislikes + 1 : item.dislikes,
+        state: tipo,
       };
       tmpLikesDislikes.push(tmp);
     }
@@ -108,7 +122,7 @@ export default function Social(props) {
       tmpLikesDislikes.forEach((element) => {
         //console.log("element.id", element.id);
         if (element.id === id) {
-          tmpElement= element;
+          tmpElement = element;
         }
       });
     }

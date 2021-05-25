@@ -20,7 +20,7 @@ exports.preloadImages = function (array, images, urlNoImage, imgGenerales) {
       handleErrorImage(this, element.id, images, urlNoImage);
     };
     images.push(image);
-    console.log("Imagen cargada de ", imgGenerales + element.url_imagen);
+    //console.log("Imagen cargada de ", imgGenerales + element.url_imagen);
   });
   return true;
 };
@@ -66,12 +66,12 @@ exports.preloadAudios = function (array, audios) {
 };
 
 exports.getUrl = function (array, id) {
-  console.log("id", id);
+  //console.log("id", id);
   let tmpUrl = null;
 
   array.forEach((element) => {
     if (element.id == id) {
-      console.log("URL", element.audio.src);
+      //console.log("URL", element.audio.src);
       tmpUrl = element.audio.src;
     }
   });
