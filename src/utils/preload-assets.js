@@ -1,21 +1,27 @@
 //IMAGENES
-exports.preloadImage = function (images, url, id, urlNoImage) {
+exports.preloadImages = function (array, images, urlNoImage, imgGenerales) {
   /*
   images: empty array
   url: path image url 
   id: record id
   urlNoImage: path no image.jpg
    */
-  const image = {
-    id: id,
-    img: new Image(),
-  };
-  image.img.src = url;
-  image.img.onerror = function () {
-    handleErrorImage(this, id, images, urlNoImage);
-  };
-  images.push(image);
-  //console.log("Imagen cargada de ", url);
+  let image;
+  array.forEach((element) => {
+    image = {
+      id: element.id,
+      img: new Image(),
+    };
+    //caraga de la url de la img
+    image.img.src = imgGenerales + element.url_imagen;
+
+    //handle fallback para las imagenes no encontradas
+    image.img.onerror = function () {
+      handleErrorImage(this, element.id, images, urlNoImage);
+    };
+    images.push(image);
+    console.log("Imagen cargada de ", imgGenerales + element.url_imagen);
+  });
   return true;
 };
 
@@ -41,7 +47,7 @@ const handleErrorImage = (e, id, images, urlNoImage) => {
   }
 };
 
-exports.preloadAudios = function (array, audios ) {  
+exports.preloadAudios = function (array, audios) {
   let itemAudio;
 
   array.forEach((element) => {
@@ -56,21 +62,21 @@ exports.preloadAudios = function (array, audios ) {
       };
       audios.push(itemAudio);
     }
-  });  
+  });
 };
 
 exports.getUrl = function (array, id) {
-    console.log("id", id);
-    let tmpUrl=null;
+  console.log("id", id);
+  let tmpUrl = null;
 
-    array.forEach((element) => {
-      if (element.id == id) {
-          console.log( "URL", element.audio.src);
-          tmpUrl = element.audio.src;          
-      } 
-    });
-    return tmpUrl;
-  };
+  array.forEach((element) => {
+    if (element.id == id) {
+      console.log("URL", element.audio.src);
+      tmpUrl = element.audio.src;
+    }
+  });
+  return tmpUrl;
+};
 
 exports.renderAudio = function (url) {
   const visor = document.getElementById("visor");
@@ -86,5 +92,3 @@ exports.renderAudio = function (url) {
               `;
   }
 };
-
-

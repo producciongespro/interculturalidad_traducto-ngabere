@@ -15,7 +15,7 @@ import EducaticoMovil from "./componentes/EducaticoMovil";
 import Detalle from "./componentes/Detalle";
 import DetalleMovil from "./componentes/DetalleMovil";
 
-import {preloadImage, preloadAudios} from "./utils/preload-assets";
+import {preloadImages, preloadAudios} from "./utils/preload-assets";
 
 import config from "./data/config.json";
 import assets from "./data/config.json";
@@ -28,7 +28,7 @@ const images = [];
 const audios = [];
 
 const fondos = config.img.general;
-console.log("fondos", fondos);
+//console.log("fondos", fondos);
 
 function App() {
   const [isReady, setisReady] = useState(false);
@@ -54,26 +54,12 @@ function App() {
     datosJson = await response.json();
     console.log("Array", datosJson);
     setisReady(true);
-    precargarAssets(datosJson);
-
+    //precargar assets (imagens y audios)
     preloadAudios(datosJson, audios);
+    preloadImages(datosJson, images, "./imagenes/no_image.png", imgGenerales);
 
     setDatosFiltrados(datosJson);
   }
-
-  const precargarAssets = async (array) => {
-    
-  await array.forEach((item, i) => {
-    //console.log("item",item.url_imagen );   
-    preloadImage(images, imgGenerales + item.url_imagen, item.id, "./imagenes/no_image.png" );    
-    
-  });    
-    
-  //console.log("images >>>>", images );
-  console.log("audios", audios);
-  };
-
-
 
 
   const modal = () => {
