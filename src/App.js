@@ -14,10 +14,8 @@ import Educatico from "./componentes/Educatico";
 import EducaticoMovil from "./componentes/EducaticoMovil";
 import Detalle from "./componentes/Detalle";
 import DetalleMovil from "./componentes/DetalleMovil";
-import PreloadAssets from "./componentes/PreloadAssets/PreloadAssets";
-import PreloadAudios from "./componentes/Test-preload-audios/PreloadAudios";
 
-import preloadImage from "./utils/preload-image";
+import {preloadImages, preloadAudios} from "./utils/preload-assets";
 
 import config from "./data/config.json";
 import assets from "./data/config.json";
@@ -25,9 +23,12 @@ import "./css/master.css";
 const imgGenerales = assets.img.general;
 var datosJson = null;
 var plataforma = "";
-let images = [];
+// Arrgelos de imagenes y audios para precarga de assets
+const images = [];
+const audios = [];
+
 const fondos = config.img.general;
-console.log("fondos", fondos);
+//console.log("fondos", fondos);
 
 function App() {
   const [isReady, setisReady] = useState(false);
@@ -53,22 +54,12 @@ function App() {
     datosJson = await response.json();
     console.log("Array", datosJson);
     setisReady(true);
-    precargarImagenes(datosJson);
+    //precargar assets (imagens y audios)
+    preloadAudios(datosJson, audios);
+    preloadImages(datosJson, images, "./imagenes/no_image.png", imgGenerales);
+
     setDatosFiltrados(datosJson);
   }
-
-  const precargarImagenes = async (array) => {
-    
-  await array.forEach((item, i) => {
-    //console.log("item",item.url_imagen );
-    images[i] = new Image();
-    preloadImage(images[i], imgGenerales + item.url_imagen);    
-  });    
-    
-  //console.log("images >>>>", images[1].src );
-  };
-
-
 
 
   const modal = () => {
@@ -298,7 +289,7 @@ function App() {
                             nombreCient={nombreCient}
                             handleMostrarDetalle={handleMostrarDetalle}
                           />
-                          <DetalleMovil info={info} />
+                          <DetalleMovil info={info} images={images} audios={audios} />
                         </div>
                       </div>
                     </div>
@@ -308,10 +299,7 @@ function App() {
                 {modal()}
               </React.Fragment>
             ) : (
-              <React.Fragment>
-                {
-                  //  <PreloadAudios array={datosJson} />
-                }
+              <React.Fragment>               
 
                 <div className="row" id="">
                   <div className="col-1">
@@ -338,7 +326,7 @@ function App() {
                             nombreCient={nombreCient}
                             handleMostrarDetalle={handleMostrarDetalle}
                           />
-                          <Detalle info={info} />
+                          <Detalle info={info} images={images} audios={audios} />
                         </div>
                       </div>
                     </div>
