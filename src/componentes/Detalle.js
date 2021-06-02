@@ -79,8 +79,9 @@ function Detalle(props) {
               </p>
             </div>
             <div id="audio-imagen" className="col-6">
+            <div className="row text-center">
               <br />
-              <div className="text-center">
+              <div className="col-12">
                 {
                   //console.log("props.info.id", props.info.id)
                 }
@@ -90,9 +91,9 @@ function Detalle(props) {
                   alt={props.info.t_espanol}
                 />
               </div>
-              <div className="text-center">
+              <div className="col-12">
                 {urlAudio ? (
-                  <audio src={urlAudio} controls="controls"></audio>
+                  <audio src={urlAudio} className="reproductor" controls="controls"></audio>
                 ) : (
                   <img
                     className="img-fluid"
@@ -100,6 +101,7 @@ function Detalle(props) {
                     alt="no audio"
                   />
                 )}
+              </div>
               </div>
               <div className="row text-center">
                 <div className="col-12">

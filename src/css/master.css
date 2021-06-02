@@ -263,10 +263,10 @@ margin-top: -125%;
     display:block;
     font-size: 4vw;
     font-weight: bold;
-    border: 2px solid #ca1c1e;
+    border: 5px solid #ca1c1e;
     display: inline-block;
     margin: 25px auto;
-    padding: 25px;
+    padding: 8px;
     position: relative;
     width: auto;
 }
@@ -296,12 +296,18 @@ margin-top: -125%;
 }
 
 .gnabere::before {
-  width: calc(100% + 50px + 4px - 120px);
+  width: calc(100% + 50px + 10px - 120px);
+    height: calc(100% + 16px);
+    top: -19px;
+    right: -5%;
+    transform: translateX(-12%);
+    z-index: 1;
+  /* width: calc(100% + 50px + 4px - 120px);
   height: calc(100% + 4px);
   top: -2px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 1; */
 }
 
 #audio-imagen{
@@ -309,12 +315,18 @@ margin-top: -125%;
 }
 
 .gnabere::after {
-  height: calc(100% + 50px + 4px - 120px);
+  height: calc(100% + 51px + 42px - 111px);
+    width: calc(100% + -58px);
+    left: 0px;
+    top: 81%;
+    transform: translateY(-53%);
+    z-index: 1;
+  /* height: calc(100% + 50px + 4px - 120px);
   width: calc(100% + 4px);
   left: -2px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 1; */
 }
 
 .gnabere_contenedor{
@@ -336,7 +348,7 @@ margin-top: -125%;
 
   .lista_terminos{
       color: darkblue;
-      font-size: 3vh;
+      font-size: 1.5vw;
       cursor: pointer;
       padding-left: 0rem;
   }
@@ -353,7 +365,12 @@ margin-top: -125%;
   .textos_gnabere{
     font-style: italic;
     font-weight: bolder;
-    font-size: 4vh;
+    font-size: 2.3vw;
+  }
+
+  .reproductor{
+    width:100%;
+    max-width:600px;
   }
 
   .textos_gnabereMovil{
@@ -366,7 +383,7 @@ margin-top: -125%;
   .textos_espanol{
     font-style: italic;
     font-weight: bolder;
-    font-size: 3vh;
+    font-size: 2vw;
   }
 
   .textos_espanolMovil{
