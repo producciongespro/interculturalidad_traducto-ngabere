@@ -5,8 +5,8 @@ import Social from "./Social";
 
   //otro comentario de demo
   const configSocial = {
-    fill: "#0ab3f2",
-    fill2: "#ff5733", 
+    fill: "#93CBB9",
+    fill2: "#9e9898", 
     size: "medium"    
   };
 

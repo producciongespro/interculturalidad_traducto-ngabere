@@ -13,7 +13,7 @@ function EducaticoMovil(props) {
                     <img id="educaticoMovil" className="img-fluid educaticoMovil" src={imgGenerales + "visiteeducatico-01.png"}  alt="Educatico" /> 
                 </div>
                 <br/>
-                <img id="esquinaIDMovil" className="img-fluid" src={imgGenerales+"borde_der-01.png"} alt="der"/>
+                <img id="esquinaIDMovil" className="img-fluid" src={imgGenerales+"borde_der-02.png"} alt="der"/>
                 
                 </div>
             </div>

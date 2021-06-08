@@ -4,14 +4,15 @@ import palabras from "../data/palabras.json";
 function MenuLetras(props) {
   return (
     <React.Fragment>
-      <div className="col-1">
-        <img
-          className="esquina"
-          src="https://recursos.mep.go.cr/2020/oscar/traductor/webservices/borde_izq-01.png"
-          alt="esquina"
-        />
+      <div className="col-3 barra_color">
+
       </div>
-      <div className="col-9">
+      <div className="col-7 letras_abc">        
+      {/* <img
+          className="esquina img-fluid"
+          src="https://recursos.mep.go.cr/2020/oscar/traductor/webservices/borde_izq-04.png"
+          alt="esquina"
+        /> */}
         {palabras.map((item, i) => (
           <button
             className="par img-fluid"

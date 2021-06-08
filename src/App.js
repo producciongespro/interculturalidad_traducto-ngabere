@@ -333,7 +333,7 @@ function App() {
                     {plataforma === "movil" ? (
                       <EducaticoMovil />
                     ) : (
-                      <Educatico />
+                       <div></div>
                     )}
                   </div>
                   <div className="col-1">

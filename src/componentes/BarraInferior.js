@@ -15,7 +15,7 @@ function BarraInferior(props) {
                     
                         <img id="inferior" className="img-fluid" src={imgGenerales + "triangulos_abajo-01.png"}  alt="BarraInferior" />
                     </div>
-                    <div className="col-5">
+                    <div className="col-5 barra_color_inf">
                     <img id="logo-mep" className="img-fluid" src={imgGenerales+"logoMep-01.png"} alt="logoMep"/>
                     </div>
                 
