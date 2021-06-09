@@ -40,7 +40,8 @@ function App() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  plataforma = detectarPlataforma();
+  //plataforma = detectarPlataforma();
+  plataforma = "movil";
   useEffect(() => {
     obtenerDatos();
   }, []);

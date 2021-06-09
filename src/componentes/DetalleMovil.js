@@ -1,16 +1,64 @@
-import React from "react";
+import React, { useEffect } from "react";
 import assets from "../data/config.json";
 import sonidos from "../data/config.json";
-import {getImage, getAudio} from "../utils/preload-assets";
+//import {getImage, getAudio} from "../utils/preload-assets";
+import { getImage, getUrl } from "../utils/preload-assets";
+import { sendData } from "gespro-utils/akiri";
+import Social from "./Social/Social";
 const imgGenerales = assets.img.general;
 const audios = sonidos.mp3.general;
 
+
+
+const configSocial = {
+  fill: "#0ab3f2",
+  fill2: "#ff5733",
+  size: "small",
+};
+
+//https://recursos.mep.go.cr/2020/oscar/webservices/registrar_social.php
+//http://localhost:3500/test
+
+const putLikesDislikes = async (data) => {
+  console.log("data>>>>>>>>", data);
+  const resp = await sendData(
+    "https://recursos.mep.go.cr/2020/oscar/webservices/registrar_social.php",
+    data
+  );
+  console.log("resp", resp);
+};
+
+
+
 function DetalleMovil(props) {
+
+
 
   let urlAudio;
   if (props.info) {
-    urlAudio = getAudio(props.audios, props.info.id);  
+    urlAudio = getUrl(props.audios, props.info.id);
   }
+  //console.log("----------------------------urlAudio", urlAudio);
+
+  useEffect(() => {
+   setup();
+  });
+
+  const setup = async () => {
+    if (props.info && props.info !== "limpiar") {
+      const data = { id: props.info.id };
+      const resp = await sendData(
+        "https://recursos.mep.go.cr/2020/oscar/webservices/registrar_vista.php",
+        data
+      );
+      console.log("respuesta del servidor vistas:", resp);
+    }
+  };
+
+
+
+
+
 
   return (
     <div className="col-9" id="detalleMovil">
@@ -52,7 +100,7 @@ function DetalleMovil(props) {
               <div className="text-center">
                     {urlAudio ? (
                       <audio
-                        src={audios + urlAudio}
+                        src={urlAudio}
                         controls="controls"
                       ></audio>
                     ) : (
@@ -61,20 +109,17 @@ function DetalleMovil(props) {
                   </div>   
 
               <div className="row text-center">
+
                 <div className="col-12">
-                  <span className="iconos">
-                    <i className="fa fa-thumbs-o-up">{props.info.me_gusta}</i>
-                  </span>
-                  <span className="iconos">
-                    <i className="fa fa-thumbs-o-down">
-                      {props.info.no_me_gusta}
-                    </i>
-                  </span>
-                  <span className="iconos">
-                    <i className="fa fa-eye">{props.info.vistas}</i>
-                  </span>
+                <Social
+                    putLikesDislikes={putLikesDislikes}
+                    config={configSocial}
+                    item={props.info}
+                  />
                 </div>
+
               </div>
+
             </div>
           </React.Fragment>
         ) : (
